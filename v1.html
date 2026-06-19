@@ -112,16 +112,20 @@
     color: var(--silk);
     font-size: 0.78rem;
     font-weight: 500;
-    opacity: 0.8;
-    transition: opacity 0.2s;
-    padding: 0.4rem 0.5rem;
-    border: 1px solid rgba(244,232,204,0.25);
+    /* Self-contained backdrop so the button stays legible over both the
+       dark hero and the light cream sections, independent of the nav bar. */
+    background: rgba(10, 7, 7, 0.55);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: background 0.2s;
+    padding: 0.4rem 0.6rem;
+    border: 1px solid rgba(244,232,204,0.4);
     border-radius: 4px;
     user-select: none;
     white-space: nowrap;
   }
 
-  .lang-sw:hover { opacity: 1; }
+  .lang-sw:hover { background: rgba(10, 7, 7, 0.75); }
   .lang-sw svg { flex-shrink: 0; }
 
   .nav__hamburger {

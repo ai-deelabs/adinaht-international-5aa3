@@ -120,15 +120,22 @@
     gap: 5px;
     font-size: 0.75rem;
     font-weight: 500;
-    color: rgba(235,230,222,0.8);
+    color: var(--chalk);
     letter-spacing: 0.08em;
-    padding: 6px 0;
-    transition: color 0.3s;
+    padding: 5px 12px;
+    /* Self-contained backdrop so the button stays legible over both the
+       dark hero and the light chalk sections, independent of the nav bar. */
+    background: rgba(26, 21, 32, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(235,230,222,0.25);
+    border-radius: 999px;
+    transition: background 0.3s;
     user-select: none;
   }
-  .nav.scrolled .lang-sw { color: var(--grey); }
-  .lang-sw:hover { color: var(--violet); }
-  .lang-sw svg { opacity: 0.7; flex-shrink: 0; }
+  .nav.scrolled .lang-sw { color: var(--chalk); }
+  .lang-sw:hover { background: rgba(26, 21, 32, 0.82); }
+  .lang-sw svg { opacity: 0.85; flex-shrink: 0; }
 
   .hamburger {
     display: flex;

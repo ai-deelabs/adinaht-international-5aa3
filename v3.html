@@ -1,0 +1,1722 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>อาดินาถเพื่อสากล ประเทศไทย — ผลิตภัณฑ์สมุนไพรไทย</title>
+<meta name="description" content="อาดินาถเพื่อสากล ผลิตภัณฑ์สมุนไพรไทยแท้ สบู่และสครับสุขภาพ สนับสนุนสันติภาพและวัฒนธรรมสากล">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@0.460.0"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --grey: #7D8FA3;
+    --chalk: #EBE6DE;
+    --violet: #4B1E91;
+    --pewter: #B8C0C8;
+    --white: #FAFAF8;
+    --dark: #1A1520;
+    --col: calc((100% - 11 * 8px) / 12);
+    --gap: 8px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'IBM Plex Sans Thai', 'Sukhumvit Set', sans-serif;
+    background: var(--chalk);
+    color: var(--dark);
+    line-height: 1.8;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    overflow-x: hidden;
+  }
+
+  /* ═══ GRID ═══ */
+  .grid-12 {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--gap);
+    padding: 0 24px;
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+  /* ═══ NAVBAR ═══ */
+  .nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    background: transparent;
+    transition: background 0.35s ease, box-shadow 0.35s ease;
+    padding: 0 24px;
+  }
+  .nav.scrolled {
+    background: rgba(235, 230, 222, 0.96);
+    box-shadow: 0 1px 0 rgba(125,143,163,0.18);
+    backdrop-filter: blur(8px);
+  }
+  .nav-inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+  .nav-logo {
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--chalk);
+    text-decoration: none;
+    text-transform: uppercase;
+    line-height: 1.2;
+    transition: color 0.3s;
+  }
+  .nav.scrolled .nav-logo { color: var(--violet); }
+  .nav-logo span {
+    display: block;
+    font-size: 0.6rem;
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    color: var(--pewter);
+    margin-top: 1px;
+  }
+  .nav.scrolled .nav-logo span { color: var(--grey); }
+
+  .nav-links {
+    display: none;
+    gap: 32px;
+    list-style: none;
+    align-items: center;
+  }
+  .nav-links a {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(235,230,222,0.8);
+    text-decoration: none;
+    transition: color 0.2s;
+    padding: 6px 0;
+  }
+  .nav.scrolled .nav-links a { color: var(--grey); }
+  .nav-links a:hover { color: var(--violet); }
+  .nav.scrolled .nav-links a:hover { color: var(--violet); }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .lang-sw {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: rgba(235,230,222,0.8);
+    letter-spacing: 0.08em;
+    padding: 6px 0;
+    transition: color 0.3s;
+    user-select: none;
+  }
+  .nav.scrolled .lang-sw { color: var(--grey); }
+  .lang-sw:hover { color: var(--violet); }
+  .lang-sw svg { opacity: 0.7; flex-shrink: 0; }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    margin-right: -8px;
+  }
+  .hamburger span {
+    display: block;
+    width: 22px;
+    height: 1.5px;
+    background: var(--chalk);
+    transition: all 0.3s ease;
+  }
+  .nav.scrolled .hamburger span { background: var(--dark); }
+  .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+  /* Mobile drawer */
+  .mobile-menu {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 64px; left: 0; right: 0;
+    background: var(--chalk);
+    border-bottom: 2px solid var(--pewter);
+    padding: 24px 24px 32px;
+    z-index: 999;
+    gap: 4px;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--grey);
+    text-decoration: none;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--pewter);
+    transition: color 0.2s;
+  }
+  .mobile-menu a:hover { color: var(--violet); }
+  .mobile-menu a:last-child { border-bottom: none; }
+
+  @media (min-width: 768px) {
+    .nav-links { display: flex; }
+    .hamburger { display: none; }
+  }
+
+  /* ═══ HERO ═══ */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    background: var(--dark);
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('https://images.unsplash.com/photo-1779117691346-5de09d89a73f?w=1600&h=900&fit=crop');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.35;
+    transform: scale(1.06);
+    animation: heroZoom 18s ease-out forwards;
+  }
+  @keyframes heroZoom {
+    from { transform: scale(1.06); }
+    to { transform: scale(1.0); }
+  }
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(26,21,32,0.2) 0%, rgba(75,30,145,0.15) 50%, rgba(26,21,32,0.85) 100%);
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding: 120px 24px 72px;
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+  .hero-label {
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--pewter);
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .hero-label::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--grey);
+  }
+  .hero-title {
+    font-size: clamp(52px, 9vw, 96px);
+    font-weight: 700;
+    color: var(--chalk);
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+  .hero-title-th {
+    font-size: clamp(32px, 5.5vw, 60px);
+    font-weight: 300;
+    color: var(--pewter);
+    line-height: 1.5;
+    letter-spacing: 0;
+    margin-bottom: 32px;
+    display: block;
+  }
+  .hero-desc {
+    font-size: clamp(0.85rem, 1.5vw, 1rem);
+    color: rgba(235,230,222,0.65);
+    max-width: 440px;
+    line-height: 1.9;
+    margin-bottom: 48px;
+  }
+  .hero-cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+  }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--violet);
+    color: var(--chalk);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 16px 32px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.25s, transform 0.25s;
+    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+  }
+  .btn-primary:hover {
+    background: #3a1570;
+    transform: translateY(-2px);
+  }
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    color: var(--chalk);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 16px 24px;
+    border: 1px solid rgba(235,230,222,0.3);
+    cursor: pointer;
+    transition: border-color 0.25s, color 0.25s;
+  }
+  .btn-ghost:hover { border-color: var(--chalk); color: var(--chalk); }
+
+  .hero-numbers {
+    position: absolute;
+    right: 24px;
+    bottom: 72px;
+    display: none;
+    flex-direction: column;
+    gap: 32px;
+    align-items: flex-end;
+  }
+  .hero-stat { text-align: right; }
+  .hero-stat-num {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--chalk);
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+  .hero-stat-label {
+    font-size: 0.6rem;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--grey);
+    margin-top: 4px;
+  }
+  @media (min-width: 768px) {
+    .hero-numbers { display: flex; }
+  }
+
+  /* ═══ BAND HEADER ═══ */
+  .band {
+    width: 100%;
+    background: var(--violet);
+    padding: 18px 24px;
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+  }
+  .band-num {
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    color: rgba(235,230,222,0.45);
+    min-width: 36px;
+  }
+  .band-title {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--chalk);
+  }
+  .band-rule {
+    flex: 1;
+    height: 1px;
+    background: rgba(235,230,222,0.15);
+    align-self: center;
+  }
+  .band-sub {
+    font-size: 0.6rem;
+    font-weight: 300;
+    letter-spacing: 0.12em;
+    color: rgba(235,230,222,0.45);
+  }
+
+  .band-grey {
+    background: var(--grey);
+  }
+  .band-grey .band-title { color: var(--dark); }
+  .band-grey .band-num, .band-grey .band-sub { color: rgba(26,21,32,0.4); }
+  .band-grey .band-rule { background: rgba(26,21,32,0.1); }
+
+  .band-dark {
+    background: var(--dark);
+  }
+  .band-chalk {
+    background: var(--chalk);
+    border-top: 1px solid var(--pewter);
+    border-bottom: 1px solid var(--pewter);
+  }
+  .band-chalk .band-title { color: var(--violet); }
+  .band-chalk .band-num, .band-chalk .band-sub { color: var(--grey); }
+  .band-chalk .band-rule { background: var(--pewter); }
+
+  /* ═══ INTRO ═══ */
+  .section-intro {
+    background: var(--chalk);
+    padding: 80px 24px;
+  }
+  .intro-inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .intro-number {
+    font-size: clamp(96px, 16vw, 160px);
+    font-weight: 700;
+    color: var(--pewter);
+    line-height: 0.85;
+    letter-spacing: -0.04em;
+    opacity: 0.6;
+  }
+  .intro-text-block { }
+  .intro-overline {
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--grey);
+    margin-bottom: 16px;
+  }
+  .intro-headline {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 700;
+    color: var(--dark);
+    line-height: 1.15;
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+  }
+  .intro-body {
+    font-size: 0.95rem;
+    color: var(--grey);
+    line-height: 1.9;
+    max-width: 540px;
+  }
+  .intro-body + .intro-body { margin-top: 16px; }
+
+  @media (min-width: 768px) {
+    .intro-inner {
+      grid-template-columns: 200px 1fr;
+      align-items: start;
+    }
+  }
+
+  /* ═══ PRODUCTS ═══ */
+  .section-products {
+    background: var(--white);
+    padding: 72px 24px;
+  }
+  .products-inner {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+  .products-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .products-big-title {
+    font-size: clamp(40px, 7vw, 80px);
+    font-weight: 700;
+    color: var(--dark);
+    letter-spacing: -0.03em;
+    line-height: 1.0;
+  }
+  .products-count {
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--grey);
+  }
+
+  .product-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+  @media (min-width: 600px) {
+    .product-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (min-width: 1024px) {
+    .product-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .product-card {
+    position: relative;
+    background: var(--chalk);
+    overflow: visible;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+  .product-card:hover { transform: translateY(-6px); }
+  .product-card:hover .product-img { transform: scale(1.04); }
+
+  .product-img-wrap {
+    overflow: hidden;
+    aspect-ratio: 1;
+    background: var(--pewter);
+    position: relative;
+  }
+  .product-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    display: block;
+  }
+  .product-badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: var(--violet);
+    color: var(--chalk);
+    font-size: 0.55rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 5px 10px;
+  }
+  .product-body {
+    padding: 20px 20px 24px;
+    border-top: 2px solid var(--violet);
+  }
+  .product-num {
+    font-size: 0.55rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    color: var(--grey);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .product-name {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 4px;
+    line-height: 1.4;
+  }
+  .product-name-th {
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: var(--grey);
+    margin-bottom: 12px;
+    line-height: 1.7;
+  }
+  .product-ingredient {
+    font-size: 0.72rem;
+    font-style: italic;
+    color: var(--grey);
+    font-family: 'IBM Plex Sans', serif;
+    margin-bottom: 16px;
+    line-height: 1.6;
+  }
+  .product-price-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+  .product-price {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--violet);
+    letter-spacing: -0.02em;
+  }
+  .product-price span {
+    font-size: 0.65rem;
+    font-weight: 400;
+    color: var(--grey);
+    letter-spacing: 0.1em;
+  }
+  .product-add {
+    width: 36px;
+    height: 36px;
+    background: var(--dark);
+    color: var(--chalk);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s;
+    border: none;
+    flex-shrink: 0;
+  }
+  .product-add:hover { background: var(--violet); }
+
+  /* ═══ INGREDIENTS ═══ */
+  .section-ingredients {
+    background: var(--dark);
+    padding: 80px 24px;
+    overflow: hidden;
+  }
+  .ingredients-inner {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+  .ingredients-headline {
+    font-size: clamp(48px, 8vw, 96px);
+    font-weight: 700;
+    color: var(--chalk);
+    line-height: 1.0;
+    letter-spacing: -0.03em;
+    margin-bottom: 64px;
+  }
+  .ingredients-headline em {
+    font-style: normal;
+    color: var(--grey);
+  }
+
+  .ingredients-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  @media (min-width: 768px) {
+    .ingredients-list { grid-template-columns: 1fr 1fr; }
+  }
+
+  .ingredient-row {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    align-items: start;
+    padding: 28px 0;
+    border-bottom: 1px solid rgba(184,192,200,0.12);
+    gap: 24px;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .ingredient-row.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .ingredient-img {
+    width: 72px;
+    height: 72px;
+    object-fit: cover;
+    border-radius: 50%;
+    opacity: 0.8;
+  }
+  .ingredient-content { }
+  .ingredient-name-en {
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--grey);
+    margin-bottom: 4px;
+  }
+  .ingredient-name-th {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--chalk);
+    margin-bottom: 6px;
+    line-height: 1.5;
+    font-style: italic;
+    font-family: 'IBM Plex Sans Thai', sans-serif;
+  }
+  .ingredient-desc {
+    font-size: 0.78rem;
+    color: rgba(184,192,200,0.65);
+    line-height: 1.8;
+  }
+
+  /* ═══ HERITAGE / CULTURE ═══ */
+  .section-heritage {
+    background: var(--chalk);
+    padding: 80px 0;
+    overflow: hidden;
+  }
+  .heritage-inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+  @media (min-width: 900px) {
+    .heritage-inner {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  .heritage-img-wrap {
+    position: relative;
+  }
+  .heritage-img {
+    width: 100%;
+    aspect-ratio: 4/5;
+    object-fit: cover;
+    display: block;
+  }
+  .heritage-img-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--violet);
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .heritage-img-caption span {
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(235,230,222,0.7);
+  }
+  .heritage-overline {
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--violet);
+    margin-bottom: 20px;
+  }
+  .heritage-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    color: var(--dark);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+  }
+  .heritage-body {
+    font-size: 0.92rem;
+    color: var(--grey);
+    line-height: 1.9;
+    margin-bottom: 16px;
+  }
+  .heritage-pillars {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-top: 40px;
+  }
+  .pillar {
+    background: var(--dark);
+    padding: 20px;
+    transition: background 0.25s;
+  }
+  .pillar:hover { background: var(--violet); }
+  .pillar-icon {
+    color: var(--grey);
+    margin-bottom: 12px;
+    display: block;
+  }
+  .pillar:hover .pillar-icon { color: var(--chalk); }
+  .pillar-title {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--chalk);
+    margin-bottom: 6px;
+  }
+  .pillar-body {
+    font-size: 0.72rem;
+    color: rgba(184,192,200,0.7);
+    line-height: 1.7;
+  }
+  .pillar:hover .pillar-body { color: rgba(235,230,222,0.75); }
+
+  /* ═══ MERIT / GIVING ═══ */
+  .section-merit {
+    background: var(--violet);
+    padding: 80px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .section-merit::before {
+    content: '';
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 320px;
+    height: 320px;
+    border: 1px solid rgba(184,192,200,0.12);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .section-merit::after {
+    content: '';
+    position: absolute;
+    bottom: -80px;
+    left: -80px;
+    width: 400px;
+    height: 400px;
+    border: 1px solid rgba(184,192,200,0.08);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .merit-inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  .merit-overline {
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(235,230,222,0.5);
+    margin-bottom: 20px;
+  }
+  .merit-title {
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    font-weight: 700;
+    color: var(--chalk);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 40px;
+    max-width: 700px;
+  }
+  .merit-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2px;
+    margin-bottom: 56px;
+  }
+  @media (min-width: 600px) {
+    .merit-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (min-width: 960px) {
+    .merit-grid { grid-template-columns: repeat(4, 1fr); }
+  }
+
+  .merit-card {
+    background: rgba(235,230,222,0.07);
+    padding: 28px 24px;
+    border-left: 2px solid rgba(235,230,222,0.15);
+    transition: background 0.25s, border-color 0.25s;
+  }
+  .merit-card:hover {
+    background: rgba(235,230,222,0.13);
+    border-color: var(--chalk);
+  }
+  .merit-card-icon {
+    color: rgba(235,230,222,0.5);
+    margin-bottom: 16px;
+    display: block;
+    transition: color 0.25s;
+  }
+  .merit-card:hover .merit-card-icon { color: var(--chalk); }
+  .merit-card-title {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--chalk);
+    margin-bottom: 8px;
+    line-height: 1.5;
+  }
+  .merit-card-desc {
+    font-size: 0.72rem;
+    color: rgba(235,230,222,0.6);
+    line-height: 1.8;
+  }
+
+  .merit-donate-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+  }
+  .merit-donate-label {
+    font-size: 0.65rem;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    color: rgba(235,230,222,0.45);
+    text-transform: uppercase;
+    flex-shrink: 0;
+  }
+  .btn-chalk {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--chalk);
+    color: var(--violet);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 16px 32px;
+    transition: background 0.25s, transform 0.25s;
+    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+  }
+  .btn-chalk:hover { background: var(--pewter); transform: translateY(-2px); }
+
+  .merit-photo {
+    width: 100%;
+    aspect-ratio: 16/7;
+    object-fit: cover;
+    display: block;
+    margin-top: 64px;
+    opacity: 0.6;
+  }
+
+  /* ═══ TESTIMONIALS ═══ */
+  .section-testimonials {
+    background: var(--chalk);
+    padding: 80px 24px;
+  }
+  .testimonials-inner {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+  .testimonials-header {
+    margin-bottom: 48px;
+  }
+  .testimonials-title {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 700;
+    color: var(--dark);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+
+  .testi-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+  @media (min-width: 640px) {
+    .testi-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (min-width: 1024px) {
+    .testi-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .testi-card {
+    background: var(--white);
+    padding: 32px 28px;
+    border-top: 2px solid var(--pewter);
+    transition: border-color 0.25s;
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.5s ease, transform 0.5s ease, border-color 0.25s;
+  }
+  .testi-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .testi-card:hover { border-color: var(--violet); }
+  .testi-stars {
+    display: flex;
+    gap: 3px;
+    margin-bottom: 16px;
+    color: var(--violet);
+  }
+  .testi-quote {
+    font-size: 0.88rem;
+    color: var(--dark);
+    line-height: 1.85;
+    margin-bottom: 24px;
+    font-weight: 300;
+  }
+  .testi-quote::before { content: '\201C'; }
+  .testi-quote::after { content: '\201D'; }
+  .testi-author {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--grey);
+  }
+  .testi-author span {
+    display: block;
+    font-weight: 300;
+    margin-top: 2px;
+    letter-spacing: 0.08em;
+    text-transform: none;
+    font-size: 0.62rem;
+  }
+
+  /* ═══ CONTACT ═══ */
+  .section-contact {
+    background: var(--dark);
+    padding: 80px 24px;
+  }
+  .contact-inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 64px;
+  }
+  @media (min-width: 900px) {
+    .contact-inner { grid-template-columns: 1fr 1fr; }
+  }
+  .contact-big {
+    font-size: clamp(48px, 8vw, 80px);
+    font-weight: 700;
+    color: var(--chalk);
+    letter-spacing: -0.03em;
+    line-height: 1.0;
+    margin-bottom: 32px;
+  }
+  .contact-tagline {
+    font-size: 0.88rem;
+    color: var(--grey);
+    line-height: 1.85;
+    margin-bottom: 40px;
+  }
+  .contact-detail-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .contact-detail {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .contact-detail-icon {
+    color: var(--grey);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .contact-detail-label {
+    font-size: 0.58rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--grey);
+    margin-bottom: 3px;
+  }
+  .contact-detail-value {
+    font-size: 0.85rem;
+    color: var(--chalk);
+    line-height: 1.7;
+  }
+  .contact-form { }
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  @media (min-width: 480px) {
+    .form-row { grid-template-columns: 1fr 1fr; }
+  }
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-label {
+    font-size: 0.58rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--grey);
+  }
+  .form-input, .form-textarea {
+    background: rgba(184,192,200,0.08);
+    border: 1px solid rgba(184,192,200,0.18);
+    color: var(--chalk);
+    font-size: 0.85rem;
+    font-family: inherit;
+    padding: 14px 16px;
+    outline: none;
+    transition: border-color 0.25s;
+    line-height: 1.8;
+    width: 100%;
+  }
+  .form-input::placeholder, .form-textarea::placeholder { color: rgba(184,192,200,0.35); }
+  .form-input:focus, .form-textarea:focus { border-color: var(--violet); }
+  .form-textarea { resize: vertical; min-height: 120px; }
+  .form-submit {
+    margin-top: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--violet);
+    color: var(--chalk);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 16px 40px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.25s;
+    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+  }
+  .form-submit:hover { background: #3a1570; }
+
+  /* ═══ FOOTER ═══ */
+  footer {
+    background: var(--dark);
+    border-top: 1px solid rgba(184,192,200,0.1);
+    padding: 40px 24px;
+  }
+  .footer-inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .footer-logo {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--chalk);
+    line-height: 1.2;
+  }
+  .footer-logo span {
+    display: block;
+    font-size: 0.58rem;
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    color: var(--grey);
+    margin-top: 2px;
+  }
+  .footer-copy {
+    font-size: 0.62rem;
+    color: var(--grey);
+    letter-spacing: 0.08em;
+    line-height: 1.7;
+  }
+  .footer-links {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .footer-links a {
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--grey);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--chalk); }
+
+  /* ═══ SCROLL REVEAL ═══ */
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">Adinaht International<span data-lang-th="อาดินาถเพื่อสากล ประเทศไทย" data-lang-en="Thai Herbal Wellness">อาดินาถเพื่อสากล ประเทศไทย</span></a>
+    <ul class="nav-links">
+      <li><a href="#products" data-lang-th="ผลิตภัณฑ์" data-lang-en="Products">ผลิตภัณฑ์</a></li>
+      <li><a href="#ingredients" data-lang-th="สมุนไพร" data-lang-en="Ingredients">สมุนไพร</a></li>
+      <li><a href="#heritage" data-lang-th="วัฒนธรรม" data-lang-en="Heritage">วัฒนธรรม</a></li>
+      <li><a href="#merit" data-lang-th="บุญกุศล" data-lang-en="Merit">บุญกุศล</a></li>
+      <li><a href="#contact" data-lang-th="ติดต่อ" data-lang-en="Contact">ติดต่อ</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="lang-sw" aria-label="Switch language">
+        <i data-lucide="globe" width="14" height="14"></i>
+        <span class="lang-sw__label">TH</span>
+      </button>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#products" data-lang-th="ผลิตภัณฑ์" data-lang-en="Products">ผลิตภัณฑ์</a>
+  <a href="#ingredients" data-lang-th="สมุนไพร" data-lang-en="Ingredients">สมุนไพร</a>
+  <a href="#heritage" data-lang-th="วัฒนธรรม" data-lang-en="Heritage">วัฒนธรรม</a>
+  <a href="#merit" data-lang-th="บุญกุศล" data-lang-en="Merit">บุญกุศล</a>
+  <a href="#contact" data-lang-th="ติดต่อ" data-lang-en="Contact">ติดต่อ</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-label" data-lang-th="สมุนไพรไทยแท้ · เพื่อสุขภาพและจิตใจ" data-lang-en="Authentic Thai Herbal · For Body &amp; Soul">สมุนไพรไทยแท้ · เพื่อสุขภาพและจิตใจ</p>
+    <h1 class="hero-title" data-lang-th="อาดินาถ" data-lang-en="Adinaht">อาดินาถ</h1>
+    <span class="hero-title-th" data-lang-th="เพื่อสากล ประเทศไทย" data-lang-en="International · Thailand">เพื่อสากล ประเทศไทย</span>
+    <p class="hero-desc" data-lang-th="ผลิตภัณฑ์สมุนไพรไทยคุณภาพสูง สร้างด้วยภูมิปัญญาดั้งเดิม สนับสนุนสันติภาพ วัฒนธรรม และการทำบุญในระดับสากล" data-lang-en="Premium Thai herbal products crafted from ancient wisdom — supporting international peace, cultural heritage, and merit-making across borders.">ผลิตภัณฑ์สมุนไพรไทยคุณภาพสูง สร้างด้วยภูมิปัญญาดั้งเดิม สนับสนุนสันติภาพ วัฒนธรรม และการทำบุญในระดับสากล</p>
+    <div class="hero-cta-row">
+      <a href="#products" class="btn-primary">
+        <i data-lucide="sparkles" width="16" height="16"></i>
+        <span data-lang-th="ดูผลิตภัณฑ์" data-lang-en="Explore Products">ดูผลิตภัณฑ์</span>
+      </a>
+      <a href="#merit" class="btn-ghost">
+        <span data-lang-th="ร่วมทำบุญ" data-lang-en="Make Merit">ร่วมทำบุญ</span>
+        <i data-lucide="arrow-right" width="14" height="14"></i>
+      </a>
+    </div>
+  </div>
+  <div class="hero-numbers">
+    <div class="hero-stat">
+      <div class="hero-stat-num">12+</div>
+      <div class="hero-stat-label" data-lang-th="ปีแห่งประสบการณ์" data-lang-en="Years of Experience">ปีแห่งประสบการณ์</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">38</div>
+      <div class="hero-stat-label" data-lang-th="สมุนไพรคัดสรร" data-lang-en="Curated Herbs">สมุนไพรคัดสรร</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">24</div>
+      <div class="hero-stat-label" data-lang-th="ประเทศที่ส่งออก" data-lang-en="Export Countries">ประเทศที่ส่งออก</div>
+    </div>
+  </div>
+</section>
+
+<!-- BAND 01 -->
+<div class="band">
+  <span class="band-num">01</span>
+  <span class="band-title" data-lang-th="เกี่ยวกับเรา" data-lang-en="About Us">เกี่ยวกับเรา</span>
+  <div class="band-rule"></div>
+  <span class="band-sub" data-lang-th="ปรัชญาและพันธกิจ" data-lang-en="Philosophy &amp; Mission">ปรัชญาและพันธกิจ</span>
+</div>
+
+<!-- INTRO -->
+<section class="section-intro" id="about">
+  <div class="intro-inner">
+    <div class="reveal">
+      <div class="intro-number">01</div>
+    </div>
+    <div class="reveal reveal-delay-1">
+      <p class="intro-overline" data-lang-th="อาดินาถเพื่อสากล" data-lang-en="Adinaht International">อาดินาถเพื่อสากล</p>
+      <h2 class="intro-headline" data-lang-th="ภูมิปัญญาไทย<br>สู่สากล" data-lang-en="Thai Wisdom,<br>Global Reach">ภูมิปัญญาไทย<br>สู่สากล</h2>
+      <p class="intro-body" data-lang-th="อาดินาถเพื่อสากลก่อตั้งขึ้นจากความเชื่อมั่นว่าสมุนไพรไทยมีคุณค่าที่ควรแบ่งปันแก่โลก เราผสมผสานภูมิปัญญาบรรพบุรุษเข้ากับมาตรฐานการผลิตสมัยใหม่ เพื่อส่งมอบผลิตภัณฑ์ที่ทั้งบำรุงร่างกายและหล่อเลี้ยงจิตใจ" data-lang-en="Adinaht International was founded on the belief that Thai herbal wisdom deserves a global stage. We marry ancestral knowledge with modern quality standards to deliver products that nourish both body and spirit.">อาดินาถเพื่อสากลก่อตั้งขึ้นจากความเชื่อมั่นว่าสมุนไพรไทยมีคุณค่าที่ควรแบ่งปันแก่โลก เราผสมผสานภูมิปัญญาบรรพบุรุษเข้ากับมาตรฐานการผลิตสมัยใหม่ เพื่อส่งมอบผลิตภัณฑ์ที่ทั้งบำรุงร่างกายและหล่อเลี้ยงจิตใจ</p>
+      <p class="intro-body" data-lang-th="นอกเหนือจากผลิตภัณฑ์ เรามุ่งมั่นสนับสนุนสันติภาพระหว่างประเทศ อนุรักษ์ประเพณีอันดีงาม และส่งเสริมการทำบุญในระดับสากล ทุกการซื้อของท่านเป็นส่วนหนึ่งของพันธกิจนี้" data-lang-en="Beyond products, we are committed to fostering international peace, preserving noble traditions, and promoting merit-making globally. Every purchase you make is part of this mission.">นอกเหนือจากผลิตภัณฑ์ เรามุ่งมั่นสนับสนุนสันติภาพระหว่างประเทศ อนุรักษ์ประเพณีอันดีงาม และส่งเสริมการทำบุญในระดับสากล ทุกการซื้อของท่านเป็นส่วนหนึ่งของพันธกิจนี้</p>
+    </div>
+  </div>
+</section>
+
+<!-- BAND 02 -->
+<div class="band band-grey" id="products">
+  <span class="band-num">02</span>
+  <span class="band-title" data-lang-th="ผลิตภัณฑ์ของเรา" data-lang-en="Our Products">ผลิตภัณฑ์ของเรา</span>
+  <div class="band-rule"></div>
+  <span class="band-sub" data-lang-th="สบู่และสครับสมุนไพร" data-lang-en="Herbal Soaps &amp; Scrubs">สบู่และสครับสมุนไพร</span>
+</div>
+
+<!-- PRODUCTS -->
+<section class="section-products">
+  <div class="products-inner">
+    <div class="products-header reveal">
+      <h2 class="products-big-title" data-lang-th="คัดสรรเพื่อท่าน" data-lang-en="Curated for You">คัดสรรเพื่อท่าน</h2>
+      <span class="products-count" data-lang-th="06 ผลิตภัณฑ์หลัก" data-lang-en="06 Signature Products">06 ผลิตภัณฑ์หลัก</span>
+    </div>
+    <div class="product-grid">
+      <!-- Card 1 -->
+      <div class="product-card reveal">
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1607006482731-93bb2ed90a87?w=600&h=600&fit=crop" alt="Thai herbal soap" class="product-img">
+          <span class="product-badge" data-lang-th="ขายดี" data-lang-en="Best Seller">ขายดี</span>
+        </div>
+        <div class="product-body">
+          <div class="product-num">P — 001</div>
+          <div class="product-name" data-lang-th="สบู่ขมิ้นทองคำ" data-lang-en="Golden Turmeric Soap">สบู่ขมิ้นทองคำ</div>
+          <div class="product-name-th" data-lang-th="ฟื้นฟูผิวด้วยภูมิปัญญาดั้งเดิม" data-lang-en="Skin Revival · Traditional Formula">ฟื้นฟูผิวด้วยภูมิปัญญาดั้งเดิม</div>
+          <div class="product-ingredient">Curcuma longa · Cocos nucifera · Citrus hystrix</div>
+          <div class="product-price-row">
+            <div class="product-price">฿280 <span data-lang-th="ต่อก้อน" data-lang-en="/ bar">ต่อก้อน</span></div>
+            <button class="product-add" aria-label="Add to cart"><i data-lucide="plus" width="16" height="16"></i></button>
+          </div>
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="product-card reveal reveal-delay-1">
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1618840152517-cf6442aeee0b?w=600&h=600&fit=crop" alt="Herbal body scrub" class="product-img">
+          <span class="product-badge" data-lang-th="ใหม่" data-lang-en="New">ใหม่</span>
+        </div>
+        <div class="product-body">
+          <div class="product-num">P — 002</div>
+          <div class="product-name" data-lang-th="สครับตะไคร้หอม" data-lang-en="Lemongrass Body Scrub">สครับตะไคร้หอม</div>
+          <div class="product-name-th" data-lang-th="กระตุ้นการไหลเวียนโลหิต หอมสดชื่น" data-lang-en="Circulation Boost · Refreshing Scent">กระตุ้นการไหลเวียนโลหิต หอมสดชื่น</div>
+          <div class="product-ingredient">Cymbopogon citratus · Saccharum officinarum · Zingiber officinale</div>
+          <div class="product-price-row">
+            <div class="product-price">฿320 <span data-lang-th="ต่อกระปุก" data-lang-en="/ jar">ต่อกระปุก</span></div>
+            <button class="product-add" aria-label="Add to cart"><i data-lucide="plus" width="16" height="16"></i></button>
+          </div>
+        </div>
+      </div>
+      <!-- Card 3 -->
+      <div class="product-card reveal reveal-delay-2">
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1778451510207-24f1e204f465?w=600&h=600&fit=crop" alt="Luxury skincare" class="product-img">
+        </div>
+        <div class="product-body">
+          <div class="product-num">P — 003</div>
+          <div class="product-name" data-lang-th="สบู่ดอกอัญชัน" data-lang-en="Butterfly Pea Soap">สบู่ดอกอัญชัน</div>
+          <div class="product-name-th" data-lang-th="สีธรรมชาติ บำรุงผิวล้ำลึก" data-lang-en="Natural Indigo · Deep Nourishment">สีธรรมชาติ บำรุงผิวล้ำลึก</div>
+          <div class="product-ingredient">Clitoria ternatea · Mel apis · Butyrospermum parkii</div>
+          <div class="product-price-row">
+            <div class="product-price">฿295 <span data-lang-th="ต่อก้อน" data-lang-en="/ bar">ต่อก้อน</span></div>
+            <button class="product-add" aria-label="Add to cart"><i data-lucide="plus" width="16" height="16"></i></button>
+          </div>
+        </div>
+      </div>
+      <!-- Card 4 -->
+      <div class="product-card reveal">
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1779056904689-ff99fd0045a4?w=600&h=600&fit=crop" alt="Premium skincare" class="product-img">
+        </div>
+        <div class="product-body">
+          <div class="product-num">P — 004</div>
+          <div class="product-name" data-lang-th="สครับข้าวนึ่ง" data-lang-en="Jasmine Rice Scrub">สครับข้าวนึ่ง</div>
+          <div class="product-name-th" data-lang-th="ผิวเรียบเนียน เปล่งปลั่งเหมือนดอกมะลิ" data-lang-en="Silky Skin · Jasmine-pure Radiance">ผิวเรียบเนียน เปล่งปลั่งเหมือนดอกมะลิ</div>
+          <div class="product-ingredient">Oryza sativa · Jasminum sambac · Gardenia jasminoides</div>
+          <div class="product-price-row">
+            <div class="product-price">฿310 <span data-lang-th="ต่อกระปุก" data-lang-en="/ jar">ต่อกระปุก</span></div>
+            <button class="product-add" aria-label="Add to cart"><i data-lucide="plus" width="16" height="16"></i></button>
+          </div>
+        </div>
+      </div>
+      <!-- Card 5 -->
+      <div class="product-card reveal reveal-delay-1">
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1615485290671-1782f96bb302?w=600&h=600&fit=crop" alt="Herbal botanical" class="product-img">
+        </div>
+        <div class="product-body">
+          <div class="product-num">P — 005</div>
+          <div class="product-name" data-lang-th="สบู่ใบเตยและมะพร้าว" data-lang-en="Pandan & Coconut Soap">สบู่ใบเตยและมะพร้าว</div>
+          <div class="product-name-th" data-lang-th="กลิ่นหอมไทยแท้ ผิวชุ่มชื้นตลอดวัน" data-lang-en="Authentic Thai Aroma · All-Day Hydration">กลิ่นหอมไทยแท้ ผิวชุ่มชื้นตลอดวัน</div>
+          <div class="product-ingredient">Pandanus amaryllifolius · Cocos nucifera · Aloe barbadensis</div>
+          <div class="product-price-row">
+            <div class="product-price">฿260 <span data-lang-th="ต่อก้อน" data-lang-en="/ bar">ต่อก้อน</span></div>
+            <button class="product-add" aria-label="Add to cart"><i data-lucide="plus" width="16" height="16"></i></button>
+          </div>
+        </div>
+      </div>
+      <!-- Card 6 -->
+      <div class="product-card reveal reveal-delay-2">
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1779117691346-5de09d89a73f?w=600&h=600&fit=crop" alt="Wellness product" class="product-img">
+          <span class="product-badge" data-lang-th="พิเศษ" data-lang-en="Special">พิเศษ</span>
+        </div>
+        <div class="product-body">
+          <div class="product-num">P — 006</div>
+          <div class="product-name" data-lang-th="ชุดของขวัญเพื่อสุขภาพ" data-lang-en="Wellness Gift Set">ชุดของขวัญเพื่อสุขภาพ</div>
+          <div class="product-name-th" data-lang-th="ครบครันในกล่องเดียว เหมาะเป็นของขวัญสุดพิเศษ" data-lang-en="Complete in One Box · The Perfect Gift">ครบครันในกล่องเดียว เหมาะเป็นของขวัญสุดพิเศษ</div>
+          <div class="product-ingredient">Curcuma longa · Cymbopogon · Clitoria · Oryza · Pandanus</div>
+          <div class="product-price-row">
+            <div class="product-price">฿890 <span data-lang-th="ต่อชุด" data-lang-en="/ set">ต่อชุด</span></div>
+            <button class="product-add" aria-label="Add to cart"><i data-lucide="plus" width="16" height="16"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BAND 03 -->
+<div class="band band-dark" id="ingredients">
+  <span class="band-num">03</span>
+  <span class="band-title" data-lang-th="สมุนไพรคัดสรร" data-lang-en="Curated Ingredients">สมุนไพรคัดสรร</span>
+  <div class="band-rule"></div>
+  <span class="band-sub" data-lang-th="ธรรมชาติบริสุทธิ์" data-lang-en="Pure from Nature">ธรรมชาติบริสุทธิ์</span>
+</div>
+
+<!-- INGREDIENTS -->
+<section class="section-ingredients">
+  <div class="ingredients-inner">
+    <h2 class="ingredients-headline reveal">
+      <span data-lang-th="พลังจาก" data-lang-en="Power from">พลังจาก</span><br>
+      <em data-lang-th="แผ่นดินไทย" data-lang-en="Thai Soil">แผ่นดินไทย</em>
+    </h2>
+    <div class="ingredients-list">
+      <div class="ingredient-row">
+        <img src="https://images.unsplash.com/photo-1615485290671-1782f96bb302?w=200&h=200&fit=crop" alt="Turmeric" class="ingredient-img">
+        <div class="ingredient-content">
+          <div class="ingredient-name-en">Curcuma longa</div>
+          <div class="ingredient-name-th" data-lang-th="ขมิ้นชัน" data-lang-en="Turmeric">ขมิ้นชัน</div>
+          <div class="ingredient-desc" data-lang-th="สมุนไพรโบราณที่ใช้บำรุงผิวในตำรับไทยมานานกว่า 1,000 ปี ต้านการอักเสบ สมานแผล และทำให้ผิวเรืองแสง" data-lang-en="Ancient herb used in Thai skin care for over 1,000 years. Anti-inflammatory, wound-healing, and radiance-giving.">สมุนไพรโบราณที่ใช้บำรุงผิวในตำรับไทยมานานกว่า 1,000 ปี ต้านการอักเสบ สมานแผล และทำให้ผิวเรืองแสง</div>
+        </div>
+      </div>
+      <div class="ingredient-row">
+        <img src="https://images.unsplash.com/photo-1723879683308-0c8542c02ee4?w=200&h=200&fit=crop" alt="Lemongrass" class="ingredient-img">
+        <div class="ingredient-content">
+          <div class="ingredient-name-en">Cymbopogon citratus</div>
+          <div class="ingredient-name-th" data-lang-th="ตะไคร้" data-lang-en="Lemongrass">ตะไคร้</div>
+          <div class="ingredient-desc" data-lang-th="กลิ่นซิตรัสอันเป็นเอกลักษณ์ของประเทศไทย ช่วยกระตุ้นการไหลเวียนเลือด ต้านเชื้อแบคทีเรีย และผ่อนคลายกล้ามเนื้อ" data-lang-en="Thailand's signature citrus scent — stimulates circulation, combats bacteria, and relieves muscle tension.">กลิ่นซิตรัสอันเป็นเอกลักษณ์ของประเทศไทย ช่วยกระตุ้นการไหลเวียนเลือด ต้านเชื้อแบคทีเรีย และผ่อนคลายกล้ามเนื้อ</div>
+        </div>
+      </div>
+      <div class="ingredient-row">
+        <img src="https://images.unsplash.com/photo-1712635408088-072d0bf95ecd?w=200&h=200&fit=crop" alt="Aloe vera" class="ingredient-img">
+        <div class="ingredient-content">
+          <div class="ingredient-name-en">Aloe barbadensis</div>
+          <div class="ingredient-name-th" data-lang-th="ว่านหางจระเข้" data-lang-en="Aloe Vera">ว่านหางจระเข้</div>
+          <div class="ingredient-desc" data-lang-th="ให้ความชุ่มชื้นล้ำลึก บรรเทาอาการระคายเคืองผิว และเร่งการฟื้นฟูเซลล์ผิวหนัง เหมาะสำหรับผิวบอบบาง" data-lang-en="Deep moisture, soothes irritation, and accelerates skin cell renewal — ideal for sensitive skin.">ให้ความชุ่มชื้นล้ำลึก บรรเทาอาการระคายเคืองผิว และเร่งการฟื้นฟูเซลล์ผิวหนัง เหมาะสำหรับผิวบอบบาง</div>
+        </div>
+      </div>
+      <div class="ingredient-row">
+        <img src="https://images.unsplash.com/photo-1589536677029-c0aa1808fba6?w=200&h=200&fit=crop" alt="Kaffir lime" class="ingredient-img">
+        <div class="ingredient-content">
+          <div class="ingredient-name-en">Citrus hystrix</div>
+          <div class="ingredient-name-th" data-lang-th="มะกรูด" data-lang-en="Kaffir Lime">มะกรูด</div>
+          <div class="ingredient-desc" data-lang-th="ผิวมะกรูดอุดมด้วยน้ำมันหอมระเหยและวิตามินซี ขจัดสิ่งสกปรก ลดความมัน และกระตุ้นคอลลาเจนตามธรรมชาติ" data-lang-en="Rind rich in essential oils and vitamin C — cleanses impurities, controls oiliness, and naturally stimulates collagen.">ผิวมะกรูดอุดมด้วยน้ำมันหอมระเหยและวิตามินซี ขจัดสิ่งสกปรก ลดความมัน และกระตุ้นคอลลาเจนตามธรรมชาติ</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BAND 04 -->
+<div class="band band-chalk" id="heritage">
+  <span class="band-num">04</span>
+  <span class="band-title" data-lang-th="มรดกทางวัฒนธรรม" data-lang-en="Cultural Heritage">มรดกทางวัฒนธรรม</span>
+  <div class="band-rule"></div>
+  <span class="band-sub" data-lang-th="ประเพณีและสันติภาพ" data-lang-en="Tradition &amp; Peace">ประเพณีและสันติภาพ</span>
+</div>
+
+<!-- HERITAGE -->
+<section class="section-heritage">
+  <div class="heritage-inner">
+    <div class="heritage-img-wrap reveal">
+      <img src="https://images.unsplash.com/photo-1638375405606-1e1de644f662?w=700&h=900&fit=crop" alt="Thai cultural art" class="heritage-img">
+      <div class="heritage-img-caption">
+        <i data-lucide="landmark" width="14" height="14" style="color:var(--chalk);opacity:0.6;"></i>
+        <span data-lang-th="ศิลปะไทยโบราณ · มรดกอันล้ำค่า" data-lang-en="Ancient Thai Art · Priceless Heritage">ศิลปะไทยโบราณ · มรดกอันล้ำค่า</span>
+      </div>
+    </div>
+    <div class="reveal reveal-delay-1">
+      <p class="heritage-overline" data-lang-th="รากแห่งความดี" data-lang-en="Roots of Virtue">รากแห่งความดี</p>
+      <h2 class="heritage-title" data-lang-th="ประเพณีดีงาม<br>สู่โลกที่สันติ" data-lang-en="Noble Traditions<br>for a Peaceful World">ประเพณีดีงาม<br>สู่โลกที่สันติ</h2>
+      <p class="heritage-body" data-lang-th="อาดินาถไม่ได้เป็นเพียงแบรนด์ผลิตภัณฑ์ แต่เป็นกระบอกเสียงของวัฒนธรรมและประเพณีไทยที่ดีงาม เราเชื่อว่าสันติภาพโลกเริ่มจากความเข้าใจซึ่งกันและกัน และความเข้าใจนั้นเกิดขึ้นได้จากการแบ่งปันวัฒนธรรม" data-lang-en="Adinaht is more than a brand — it is a voice for Thailand's finest traditions. We believe world peace begins with mutual understanding, and that understanding grows through the sharing of culture.">อาดินาถไม่ได้เป็นเพียงแบรนด์ผลิตภัณฑ์ แต่เป็นกระบอกเสียงของวัฒนธรรมและประเพณีไทยที่ดีงาม เราเชื่อว่าสันติภาพโลกเริ่มจากความเข้าใจซึ่งกันและกัน และความเข้าใจนั้นเกิดขึ้นได้จากการแบ่งปันวัฒนธรรม</p>
+      <p class="heritage-body" data-lang-th="ผลิตภัณฑ์ของเราเป็นสะพานเชื่อมระหว่างประเทศ ผ่านกลิ่นหอม เนื้อสัมผัส และเรื่องราวของสมุนไพรที่สืบทอดกันมาหลายชั่วอายุคน" data-lang-en="Our products are a bridge between nations — through scent, texture, and the stories of herbs passed down across generations.">ผลิตภัณฑ์ของเราเป็นสะพานเชื่อมระหว่างประเทศ ผ่านกลิ่นหอม เนื้อสัมผัส และเรื่องราวของสมุนไพรที่สืบทอดกันมาหลายชั่วอายุคน</p>
+      <div class="heritage-pillars">
+        <div class="pillar">
+          <i data-lucide="heart-handshake" width="20" height="20" class="pillar-icon"></i>
+          <div class="pillar-title" data-lang-th="สันติภาพ" data-lang-en="Peace">สันติภาพ</div>
+          <div class="pillar-body" data-lang-th="สนับสนุนการเจรจาและความเข้าใจระหว่างประชาชนทุกชาติ" data-lang-en="Supporting dialogue and understanding among all nations.">สนับสนุนการเจรจาและความเข้าใจระหว่างประชาชนทุกชาติ</div>
+        </div>
+        <div class="pillar">
+          <i data-lucide="book-open" width="20" height="20" class="pillar-icon"></i>
+          <div class="pillar-title" data-lang-th="วัฒนธรรม" data-lang-en="Culture">วัฒนธรรม</div>
+          <div class="pillar-body" data-lang-th="อนุรักษ์และเผยแพร่ประเพณีไทยอันดีงามสู่สายตาโลก" data-lang-en="Preserving and sharing Thailand's finest traditions globally.">อนุรักษ์และเผยแพร่ประเพณีไทยอันดีงามสู่สายตาโลก</div>
+        </div>
+        <div class="pillar">
+          <i data-lucide="leaf" width="20" height="20" class="pillar-icon"></i>
+          <div class="pillar-title" data-lang-th="สมุนไพร" data-lang-en="Herbal Wisdom">สมุนไพร</div>
+          <div class="pillar-body" data-lang-th="ถ่ายทอดภูมิปัญญาสมุนไพรไทยให้คงอยู่ตลอดไป" data-lang-en="Transmitting Thai herbal knowledge to future generations.">ถ่ายทอดภูมิปัญญาสมุนไพรไทยให้คงอยู่ตลอดไป</div>
+        </div>
+        <div class="pillar">
+          <i data-lucide="globe-2" width="20" height="20" class="pillar-icon"></i>
+          <div class="pillar-title" data-lang-th="สากล" data-lang-en="Global Reach">สากล</div>
+          <div class="pillar-body" data-lang-th="เชื่อมโยงไทยกับนานาประเทศผ่านคุณค่าร่วมกัน" data-lang-en="Connecting Thailand to the world through shared values.">เชื่อมโยงไทยกับนานาประเทศผ่านคุณค่าร่วมกัน</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BAND 05 -->
+<div class="band" id="merit">
+  <span class="band-num">05</span>
+  <span class="band-title" data-lang-th="บุญกุศลและการบริจาค" data-lang-en="Merit &amp; Donations">บุญกุศลและการบริจาค</span>
+  <div class="band-rule"></div>
+  <span class="band-sub" data-lang-th="ร่วมสร้างโลกที่ดีขึ้น" data-lang-en="Build a Better World Together">ร่วมสร้างโลกที่ดีขึ้น</span>
+</div>
+
+<!-- MERIT -->
+<section class="section-merit">
+  <div class="merit-inner">
+    <p class="merit-overline reveal" data-lang-th="กุศลกรรมเพื่อสังคม" data-lang-en="Charitable Acts for Society">กุศลกรรมเพื่อสังคม</p>
+    <h2 class="merit-title reveal" data-lang-th="ทุกบาทที่ท่านจ่าย<br>คือบุญกุศลที่กลับมา" data-lang-en="Every Baht You Spend<br>Returns as Merit">ทุกบาทที่ท่านจ่าย<br>คือบุญกุศลที่กลับมา</h2>
+    <div class="merit-grid">
+      <div class="merit-card reveal">
+        <i data-lucide="temple" width="24" height="24" class="merit-card-icon"></i>
+        <div class="merit-card-title" data-lang-th="สนับสนุนวัดและพระสงฆ์" data-lang-en="Support Temples &amp; Monks">สนับสนุนวัดและพระสงฆ์</div>
+        <div class="merit-card-desc" data-lang-th="ส่วนหนึ่งของยอดขายถวายแด่วัดและสนับสนุนกิจกรรมทางศาสนาทั้งในไทยและต่างประเทศ" data-lang-en="A portion of every sale is donated to temples and religious activities in Thailand and abroad.">ส่วนหนึ่งของยอดขายถวายแด่วัดและสนับสนุนกิจกรรมทางศาสนาทั้งในไทยและต่างประเทศ</div>
+      </div>
+      <div class="merit-card reveal reveal-delay-1">
+        <i data-lucide="users" width="24" height="24" class="merit-card-icon"></i>
+        <div class="merit-card-title" data-lang-th="ทุนการศึกษาเด็กด้อยโอกาส" data-lang-en="Scholarships for Children">ทุนการศึกษาเด็กด้อยโอกาส</div>
+        <div class="merit-card-desc" data-lang-th="มอบโอกาสทางการศึกษาแก่เยาวชนไทยผู้ขาดแคลน ส่งเสริมอนาคตที่ดีและยั่งยืน" data-lang-en="Granting educational opportunities to underprivileged Thai youth for a bright and sustainable future.">มอบโอกาสทางการศึกษาแก่เยาวชนไทยผู้ขาดแคลน ส่งเสริมอนาคตที่ดีและยั่งยืน</div>
+      </div>
+      <div class="merit-card reveal reveal-delay-2">
+        <i data-lucide="sprout" width="24" height="24" class="merit-card-icon"></i>
+        <div class="merit-card-title" data-lang-th="อนุรักษ์สมุนไพรไทย" data-lang-en="Thai Herb Conservation">อนุรักษ์สมุนไพรไทย</div>
+        <div class="merit-card-desc" data-lang-th="ลงทุนในการปลูกและอนุรักษ์สมุนไพรหายากเพื่อให้คงอยู่สู่คนรุ่นต่อไป" data-lang-en="Investing in the cultivation and preservation of rare herbs for the next generation.">ลงทุนในการปลูกและอนุรักษ์สมุนไพรหายากเพื่อให้คงอยู่สู่คนรุ่นต่อไป</div>
+      </div>
+      <div class="merit-card reveal reveal-delay-3">
+        <i data-lucide="handshake" width="24" height="24" class="merit-card-icon"></i>
+        <div class="merit-card-title" data-lang-th="สันติภาพระหว่างประเทศ" data-lang-en="International Peace">สันติภาพระหว่างประเทศ</div>
+        <div class="merit-card-desc" data-lang-th="สนับสนุนโครงการแลกเปลี่ยนวัฒนธรรมและส่งเสริมความสัมพันธ์ระหว่างประชาชนทั่วโลก" data-lang-en="Supporting cultural exchange programs and fostering relationships among people worldwide.">สนับสนุนโครงการแลกเปลี่ยนวัฒนธรรมและส่งเสริมความสัมพันธ์ระหว่างประชาชนทั่วโลก</div>
+      </div>
+    </div>
+    <div class="merit-donate-row reveal">
+      <span class="merit-donate-label" data-lang-th="ร่วมเป็นส่วนหนึ่ง" data-lang-en="Become a Part of It">ร่วมเป็นส่วนหนึ่ง</span>
+      <a href="#contact" class="btn-chalk">
+        <i data-lucide="gift" width="16" height="16"></i>
+        <span data-lang-th="บริจาคเพื่อบุญ" data-lang-en="Donate for Merit">บริจาคเพื่อบุญ</span>
+      </a>
+    </div>
+    <img src="https://images.unsplash.com/photo-1772520627918-8b02228a4f9a?w=1400&h=600&fit=crop" alt="Monks in temple" class="merit-photo reveal">
+  </div>
+</section>
+
+<!-- BAND 06 -->
+<div class="band band-chalk">
+  <span class="band-num">06</span>
+  <span class="band-title" data-lang-th="เสียงจากลูกค้า" data-lang-en="Customer Voices">เสียงจากลูกค้า</span>
+  <div class="band-rule"></div>
+  <span class="band-sub" data-lang-th="ความไว้วางใจที่สร้างมาด้วยกัน" data-lang-en="Trust Built Together">ความไว้วางใจที่สร้างมาด้วยกัน</span>
+</div>
+
+<!-- TESTIMONIALS -->
+<section class="section-testimonials">
+  <div class="testimonials-inner">
+    <div class="testimonials-header reveal">
+      <h2 class="testimonials-title" data-lang-th="ลูกค้าพูดถึงเรา" data-lang-en="What Clients Say">ลูกค้าพูดถึงเรา</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-stars">
+          <i data-lucide="star" width="14" height="14"></i><i data-lucide="star" width="14" height="14"></i><i data-lucide="star" width="14" height="14"></i><i data-lucide="star" width="14" height="14"></i><i data-lucide="star" width="14" height="14"></i>
+        </div>
+        <p class="testi-quote" data-lang-th="สบู่ขมิ้นทองคำเปลี่ยนผิวของฉันได้อย่างน่าทึ่ง กลิ่นหอมอ่อนๆ และผิวเรียบเนียนขึ้นเห็นได้ชัดภายในสัปดาห์แรก ผลิตภัณฑ์ระดับโลกจากภูมิปัญญาไทยแท้" data-lang-en="The Golden Turmeric Soap transformed my skin dramatically. The gentle scent and noticeably smoother skin within the first week — world-class product from authentic Thai wisdom.">สบู่ขมิ้นทองคำเปลี่ยนผิวของฉันได้อย่างน่าทึ่ง กลิ่นหอมอ่อนๆ และผิวเรียบเนียนขึ้นเห็นได้ชัดภายในสัปดาห์แรก ผลิตภัณฑ์ระดับโลกจากภูมิปัญญาไทยแท้</p>
+        <div class="testi-author">คุณสุดาพร วงศ์ชัย<span data-lang-th="กรุงเทพมหานคร ประเทศไทย" data-lang-en="Bangkok, Thailand">กรุงเทพมหานคร ประเทศไทย</span></div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">
+          <i data-lucide="star" width="14" height="14"></i><i data-lucide="star" width="14" height="14"></i><i data-lucide="star" width="14" height="14"></i><i data-lucide="star" width="14" height="14"></i><i data-lucide="star" width="14" height="14"></i>
+        </div>
+        <p class="testi-quote" data-lang-th="ฉันสั่งชุดของขวัญเพื่อสุขภาพมอบให้เพื่อนต่างชาติ เขาประทับใจมากและสนใจวัฒนธรรมไทยมากขึ้น นี่คือสิ่งที่อาดินาถทำได้ดีที่สุด — เชื่อมโยงผู้คน" data-lang-en="I ordered the Wellness Gift Set for my international friends. They were deeply impressed and became more interested in Thai culture. This is what Adinaht does best — connecting people.">ฉันสั่งชุดของขวัญเพื่อสุขภาพมอบให้เพื่อนต่างชาติ เขาประทับใจมากและสนใจวัฒนธรรมไทยมากขึ้น นี่คือสิ่งที่อาดินาถทำได้ดีที่สุด — เชื่อมโยงผู้คน</p>
+        <div class="testi-author">Amara Osei<span data-lang-th="อักกรา ประเทศกานา" data-lang-en="Accra, Ghana">อักกรา ประเทศกานา</span></div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">
+          <i data-lucide="star" width="14" height="14"></i><i data-lucide="star" width="14" height="14"></i><i data-lucide="star" width="14" height="14"></i><i data-lucide="star" width="14" height="14"></i><i data-lucide="star" width="14" height="14"></i>
+        </div>
+        <p class="testi-quote" data-lang-th="สครับตะไคร้หอมทำให้รู้สึกเหมือนไปสปาทุกวัน และรู้ว่าส่วนหนึ่งของเงินที่จ่ายไปช่วยเหลือเด็กที่ด้อยโอกาส ทำให้รู้สึกดีมากขึ้นอีก" data-lang-en="The Lemongrass Scrub makes every day feel like a spa visit. Knowing part of my purchase helps underprivileged children makes it feel even better.">สครับตะไคร้หอมทำให้รู้สึกเหมือนไปสปาทุกวัน และรู้ว่าส่วนหนึ่งของเงินที่จ่ายไปช่วยเหลือเด็กที่ด้อยโอกาส ทำให้รู้สึกดีมากขึ้นอีก</p>
+        <div class="testi-author">คุณนภาพร ศรีสมบัติ<span data-lang-th="เชียงใหม่ ประเทศไทย" data-lang-en="Chiang Mai, Thailand">เชียงใหม่ ประเทศไทย</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BAND 07 -->
+<div class="band band-dark" id="contact">
+  <span class="band-num">07</span>
+  <span class="band-title" data-lang-th="ติดต่อเรา" data-lang-en="Get in Touch">ติดต่อเรา</span>
+  <div class="band-rule"></div>
+  <span class="band-sub" data-lang-th="เราพร้อมต้อนรับเสมอ" data-lang-en="Always Ready to Welcome You">เราพร้อมต้อนรับเสมอ</span>
+</div>
+
+<!-- CONTACT -->
+<section class="section-contact">
+  <div class="contact-inner">
+    <div class="reveal">
+      <h2 class="contact-big" data-lang-th="พูดคุย<br>กับเรา" data-lang-en="Talk<br>to Us">พูดคุย<br>กับเรา</h2>
+      <p class="contact-tagline" data-lang-th="ไม่ว่าจะเป็นคำถามเกี่ยวกับผลิตภัณฑ์ การสั่งซื้อ หรือการร่วมมือเพื่อสันติภาพและวัฒนธรรม เรายินดีรับฟังท่านเสมอ" data-lang-en="Whether it's a product inquiry, an order, or a collaboration for peace and culture — we are always here to listen.">ไม่ว่าจะเป็นคำถามเกี่ยวกับผลิตภัณฑ์ การสั่งซื้อ หรือการร่วมมือเพื่อสันติภาพและวัฒนธรรม เรายินดีรับฟังท่านเสมอ</p>
+      <div class="contact-detail-list">
+        <div class="contact-detail">
+          <i data-lucide="map-pin" width="18" height="18" class="contact-detail-icon"></i>
+          <div>
+            <div class="contact-detail-label" data-lang-th="ที่อยู่" data-lang-en="Address">ที่อยู่</div>
+            <div class="contact-detail-value" data-lang-th="123 ถนนสุขุมวิท แขวงคลองเตย เขตคลองเตย กรุงเทพมหานคร 10110" data-lang-en="123 Sukhumvit Road, Khlong Toei, Bangkok 10110, Thailand">123 ถนนสุขุมวิท แขวงคลองเตย เขตคลองเตย กรุงเทพมหานคร 10110</div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <i data-lucide="phone" width="18" height="18" class="contact-detail-icon"></i>
+          <div>
+            <div class="contact-detail-label" data-lang-th="โทรศัพท์" data-lang-en="Phone">โทรศัพท์</div>
+            <div class="contact-detail-value">+66 2 123 4567</div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <i data-lucide="mail" width="18" height="18" class="contact-detail-icon"></i>
+          <div>
+            <div class="contact-detail-label" data-lang-th="อีเมล" data-lang-en="Email">อีเมล</div>
+            <div class="contact-detail-value">hello@adinaht-international.com</div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <i data-lucide="clock" width="18" height="18" class="contact-detail-icon"></i>
+          <div>
+            <div class="contact-detail-label" data-lang-th="เวลาทำการ" data-lang-en="Hours">เวลาทำการ</div>
+            <div class="contact-detail-value" data-lang-th="จันทร์–ศุกร์ 09:00–18:00 น." data-lang-en="Mon–Fri 09:00–18:00 (ICT)">จันทร์–ศุกร์ 09:00–18:00 น.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-form reveal reveal-delay-1">
+      <form onsubmit="return false;">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" data-lang-th="ชื่อ" data-lang-en="Name">ชื่อ</label>
+            <input type="text" class="form-input" data-placeholder-th="ชื่อของท่าน" data-placeholder-en="Your name" placeholder="ชื่อของท่าน">
+          </div>
+          <div class="form-group">
+            <label class="form-label" data-lang-th="อีเมล" data-lang-en="Email">อีเมล</label>
+            <input type="email" class="form-input" data-placeholder-th="อีเมลของท่าน" data-placeholder-en="Your email" placeholder="อีเมลของท่าน">
+          </div>
+        </div>
+        <div class="form-group" style="margin-bottom:12px;">
+          <label class="form-label" data-lang-th="หัวข้อ" data-lang-en="Subject">หัวข้อ</label>
+          <input type="text" class="form-input" data-placeholder-th="หัวข้อข้อความ" data-placeholder-en="Subject" placeholder="หัวข้อข้อความ">
+        </div>
+        <div class="form-group">
+          <label class="form-label" data-lang-th="ข้อความ" data-lang-en="Message">ข้อความ</label>
+          <textarea class="form-textarea" data-placeholder-th="กรุณาเขียนข้อความของท่านที่นี่..." data-placeholder-en="Write your message here..." placeholder="กรุณาเขียนข้อความของท่านที่นี่..."></textarea>
+        </div>
+        <button type="submit" class="form-submit">
+          <i data-lucide="send" width="16" height="16"></i>
+          <span data-lang-th="ส่งข้อความ" data-lang-en="Send Message">ส่งข้อความ</span>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      Adinaht International
+      <span data-lang-th="© 2567 อาดินาถเพื่อสากล สงวนสิทธิ์" data-lang-en="© 2024 Adinaht International. All rights reserved.">© 2567 อาดินาถเพื่อสากล สงวนสิทธิ์</span>
+    </div>
+    <div class="footer-links">
+      <a href="#products" data-lang-th="ผลิตภัณฑ์" data-lang-en="Products">ผลิตภัณฑ์</a>
+      <a href="#heritage" data-lang-th="วัฒนธรรม" data-lang-en="Heritage">วัฒนธรรม</a>
+      <a href="#merit" data-lang-th="บุญกุศล" data-lang-en="Merit">บุญกุศล</a>
+      <a href="#contact" data-lang-th="ติดต่อ" data-lang-en="Contact">ติดต่อ</a>
+    </div>
+    <div class="footer-copy" data-lang-th="ผลิตด้วยความรักและภูมิปัญญาไทย" data-lang-en="Made with love and Thai wisdom.">ผลิตด้วยความรักและภูมิปัญญาไทย</div>
+  </div>
+</footer>
+
+<script>
+// Navbar scroll
+(function(){
+  var nav = document.getElementById('nav');
+  window.addEventListener('scroll', function(){
+    if(window.scrollY > 40){ nav.classList.add('scrolled'); }
+    else { nav.classList.remove('scrolled'); }
+  }, {passive: true});
+})();
+
+// Hamburger
+(function(){
+  var btn = document.getElementById('hamburger');
+  var menu = document.getElementById('mobile-menu');
+  btn.addEventListener('click', function(){
+    btn.classList.toggle('open');
+    menu.classList.toggle('open');
+  });
+  menu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      btn.classList.remove('open');
+      menu.classList.remove('open');
+    });
+  });
+})();
+
+// Scroll reveal
+(function(){
+  var els = document.querySelectorAll('.reveal, .ingredient-row, .testi-card');
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('visible'); }
+    });
+  }, {threshold: 0.12});
+  els.forEach(function(el){ io.observe(el); });
+})();
+
+// Lang switcher placeholder update
+(function(){
+  function updatePlaceholders(lang){
+    document.querySelectorAll('[data-placeholder-th]').forEach(function(el){
+      el.placeholder = el.getAttribute('data-placeholder-' + lang) || el.placeholder;
+    });
+  }
+  var origS = window._langSwitcherSet;
+  var _interval = setInterval(function(){
+    var lb = document.querySelector('.lang-sw__label');
+    if(lb){
+      clearInterval(_interval);
+      var currentLang = (localStorage.getItem('site-lang') || 'th');
+      updatePlaceholders(currentLang);
+      document.querySelector('.lang-sw').addEventListener('click', function(){
+        setTimeout(function(){
+          var l = localStorage.getItem('site-lang') || 'th';
+          updatePlaceholders(l);
+        }, 50);
+      });
+    }
+  }, 100);
+})();
+</script>
+
+<!-- Lucide icons + Language switcher -->
+<script>
+lucide.createIcons();
+</script>
+<script>
+(function(){var K='site-lang',L=localStorage.getItem(K)||'th';function S(l){L=l;localStorage.setItem(K,l);document.documentElement.lang=l;document.querySelectorAll('[data-lang-th]').forEach(function(e){var t=e.getAttribute('data-lang-'+l);if(t!==null){e.textContent=t}});var lb=document.querySelector('.lang-sw__label');if(lb){lb.textContent=l.toUpperCase()}}var sw=document.querySelector('.lang-sw');if(sw){sw.addEventListener('click',function(){S(L==='th'?'en':'th')});sw.style.cursor='pointer'}if(L!=='th'){S(L)}})();
+</script>
+</body>
+</html>

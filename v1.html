@@ -1,0 +1,1768 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>อาดินาถเพื่อสากล — ผลิตภัณฑ์สมุนไพรไทยระดับพรีเมียม</title>
+<meta name="description" content="อาดินาถเพื่อสากล ประเทศไทย — สบู่และสครับสมุนไพรไทยแท้ เพื่อความงามระดับโลกและสันติภาพสากล">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@0.460.0"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --fuchsia: #C8005C;
+    --fuchsia-dark: #9A0047;
+    --silk: #F4E8CC;
+    --silk-dark: #E8D5A8;
+    --near-black: #0A0707;
+    --near-black-soft: #1A1212;
+    --white: #FDFAF5;
+    --gray-mid: #6B5E5E;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+  }
+
+  body {
+    font-family: 'IBM Plex Sans Thai', 'Sukhumvit Set', sans-serif;
+    background: var(--near-black);
+    color: var(--silk);
+    line-height: 1.8;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    overflow-x: hidden;
+  }
+
+  /* ── TYPOGRAPHY ── */
+  .display {
+    font-family: 'Cormorant Display', Georgia, serif;
+    letter-spacing: -0.01em;
+    line-height: 1.05;
+  }
+
+  h1, h2, h3 { line-height: 1.5; }
+
+  /* ── NAV ── */
+  .nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background 0.4s, padding 0.4s, backdrop-filter 0.4s;
+  }
+
+  .nav.scrolled {
+    background: rgba(10, 7, 7, 0.92);
+    backdrop-filter: blur(12px);
+    padding: 0.75rem 1.5rem;
+  }
+
+  .nav__logo {
+    font-family: 'Cormorant Display', Georgia, serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--silk);
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .nav__logo span {
+    color: var(--fuchsia);
+  }
+
+  .nav__right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .nav__links {
+    display: none;
+    list-style: none;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .nav__links a {
+    color: var(--silk);
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 400;
+    opacity: 0.85;
+    transition: opacity 0.2s, color 0.2s;
+    padding: 0.5rem 0;
+    display: inline-block;
+  }
+
+  .nav__links a:hover { opacity: 1; color: var(--fuchsia); }
+
+  .lang-sw {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    color: var(--silk);
+    font-size: 0.78rem;
+    font-weight: 500;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+    padding: 0.4rem 0.5rem;
+    border: 1px solid rgba(244,232,204,0.25);
+    border-radius: 4px;
+    user-select: none;
+    white-space: nowrap;
+  }
+
+  .lang-sw:hover { opacity: 1; }
+  .lang-sw svg { flex-shrink: 0; }
+
+  .nav__hamburger {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--silk);
+    padding: 0.4rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav__mobile {
+    display: none;
+    position: fixed;
+    top: 0; right: 0;
+    width: min(320px, 85vw);
+    height: 100vh;
+    background: var(--near-black-soft);
+    z-index: 999;
+    padding: 5rem 2rem 2rem;
+    flex-direction: column;
+    gap: 0;
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    border-left: 1px solid rgba(200,0,92,0.2);
+  }
+
+  .nav__mobile.open {
+    transform: translateX(0);
+  }
+
+  .nav__mobile a {
+    color: var(--silk);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 400;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(244,232,204,0.08);
+    display: block;
+    transition: color 0.2s;
+  }
+
+  .nav__mobile a:hover { color: var(--fuchsia); }
+
+  .nav__overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(10,7,7,0.7);
+    z-index: 998;
+  }
+
+  .nav__close {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--silk);
+    padding: 0.4rem;
+  }
+
+  @media (min-width: 768px) {
+    .nav__links { display: flex; }
+    .nav__hamburger { display: none; }
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100svh;
+    display: grid;
+    grid-template-columns: 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero__image-wrap {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .hero__image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transform: scale(1.08);
+    animation: heroZoom 12s ease-out forwards;
+  }
+
+  @keyframes heroZoom {
+    to { transform: scale(1); }
+  }
+
+  .hero__image-wrap::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      160deg,
+      rgba(10,7,7,0.75) 0%,
+      rgba(10,7,7,0.45) 50%,
+      rgba(200,0,92,0.15) 100%
+    );
+  }
+
+  .hero__content {
+    position: relative;
+    z-index: 1;
+    padding: 7rem 1.5rem 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 100svh;
+  }
+
+  .hero__eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--fuchsia);
+    font-weight: 600;
+    margin-bottom: 1.2rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.3s ease-out forwards;
+  }
+
+  .hero__headline {
+    font-family: 'Cormorant Display', Georgia, serif;
+    font-size: clamp(3.5rem, 14vw, 9rem);
+    font-weight: 600;
+    line-height: 0.92;
+    color: var(--silk);
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.5s ease-out forwards;
+  }
+
+  .hero__headline em {
+    font-style: italic;
+    color: var(--fuchsia);
+  }
+
+  .hero__headline .break {
+    display: block;
+    padding-left: clamp(2rem, 12vw, 8rem);
+  }
+
+  .hero__subhead {
+    font-size: clamp(0.85rem, 2.5vw, 1rem);
+    font-weight: 300;
+    color: var(--silk);
+    opacity: 0;
+    max-width: 36ch;
+    line-height: 1.9;
+    margin-bottom: 2.5rem;
+    animation: fadeUp 0.9s 0.7s ease-out forwards;
+  }
+
+  .hero__cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.9s ease-out forwards;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── BUTTONS ── */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--fuchsia);
+    color: var(--white);
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.9em 2em;
+    border: none;
+    cursor: pointer;
+    transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
+    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%);
+    min-height: 44px;
+  }
+
+  .btn-primary:hover {
+    background: var(--fuchsia-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(200,0,92,0.35);
+  }
+
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+    color: var(--silk);
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.9em 2em;
+    border: 1px solid rgba(244,232,204,0.4);
+    cursor: pointer;
+    transition: border-color 0.25s, color 0.25s, background 0.25s;
+    min-height: 44px;
+  }
+
+  .btn-outline:hover {
+    border-color: var(--silk);
+    background: rgba(244,232,204,0.06);
+  }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(36px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .reveal-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  }
+
+  .reveal-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .reveal-right {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  }
+
+  .reveal-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* ── MANIFESTO BAND ── */
+  .manifesto {
+    background: var(--fuchsia);
+    padding: 3rem 1.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .manifesto::before {
+    content: '';
+    position: absolute;
+    top: -40px; left: -40px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.06);
+  }
+
+  .manifesto__quote {
+    font-family: 'Cormorant Display', Georgia, serif;
+    font-size: clamp(1.6rem, 5vw, 3rem);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--white);
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.4;
+    position: relative;
+    z-index: 1;
+  }
+
+  .manifesto__attr {
+    margin-top: 1.2rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(253,250,245,0.7);
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── SPLIT PANELS ── */
+  .split-panel {
+    display: grid;
+    grid-template-columns: 1fr;
+    min-height: 100svh;
+    position: relative;
+  }
+
+  .split-panel__image {
+    width: 100%;
+    height: 55vw;
+    min-height: 280px;
+    max-height: 500px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .split-panel__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease-out;
+  }
+
+  .split-panel:hover .split-panel__image img {
+    transform: scale(1.04);
+  }
+
+  .split-panel__text {
+    padding: 3.5rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--near-black);
+  }
+
+  .split-panel__text.silk-bg {
+    background: var(--silk);
+    color: var(--near-black);
+  }
+
+  .split-panel__num {
+    font-family: 'Cormorant Display', Georgia, serif;
+    font-size: 5rem;
+    font-weight: 300;
+    color: var(--fuchsia);
+    opacity: 0.25;
+    line-height: 1;
+    margin-bottom: -1.5rem;
+  }
+
+  .split-panel__eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--fuchsia);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+
+  .split-panel__text.silk-bg .split-panel__eyebrow {
+    color: var(--fuchsia);
+  }
+
+  .split-panel__headline {
+    font-family: 'Cormorant Display', Georgia, serif;
+    font-size: clamp(2.2rem, 8vw, 4.5rem);
+    font-weight: 600;
+    line-height: 1.1;
+    margin-bottom: 1.2rem;
+    color: var(--silk);
+  }
+
+  .split-panel__text.silk-bg .split-panel__headline {
+    color: var(--near-black);
+  }
+
+  .split-panel__headline .stagger {
+    display: block;
+    padding-left: 2rem;
+    font-style: italic;
+  }
+
+  .split-panel__body {
+    font-size: 0.92rem;
+    line-height: 1.9;
+    opacity: 0.8;
+    margin-bottom: 2rem;
+    max-width: 42ch;
+  }
+
+  .split-panel__text.silk-bg .split-panel__body {
+    color: var(--near-black);
+    opacity: 0.75;
+  }
+
+  .product-badge {
+    display: inline-block;
+    background: var(--fuchsia);
+    color: var(--white);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.45em 1em;
+    margin-bottom: 1.5rem;
+    clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
+  }
+
+  @media (min-width: 768px) {
+    .split-panel {
+      grid-template-columns: 1fr 1fr;
+      min-height: 90vh;
+    }
+
+    .split-panel__image {
+      height: auto;
+      max-height: none;
+    }
+
+    .split-panel.reverse .split-panel__image {
+      order: 2;
+    }
+
+    .split-panel.reverse .split-panel__text {
+      order: 1;
+    }
+
+    .split-panel__text {
+      padding: 5rem 4rem;
+    }
+  }
+
+  /* ── PRODUCTS GRID ── */
+  .products-section {
+    background: var(--silk);
+    padding: 5rem 1.5rem;
+    position: relative;
+  }
+
+  .products-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 80px;
+    background: var(--near-black);
+    clip-path: polygon(0 0, 100% 0, 100% 40%, 0 100%);
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+
+  .section-eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--fuchsia);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Display', Georgia, serif;
+    font-size: clamp(2.2rem, 7vw, 4rem);
+    font-weight: 600;
+    color: var(--near-black);
+    line-height: 1.15;
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--fuchsia);
+  }
+
+  /* Horizontal scroll product strip */
+  .product-strip {
+    display: flex;
+    gap: 1.25rem;
+    overflow-x: auto;
+    padding-bottom: 1.5rem;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: var(--fuchsia) var(--silk-dark);
+  }
+
+  .product-strip::-webkit-scrollbar { height: 4px; }
+  .product-strip::-webkit-scrollbar-track { background: var(--silk-dark); }
+  .product-strip::-webkit-scrollbar-thumb { background: var(--fuchsia); border-radius: 2px; }
+
+  .product-card {
+    flex: 0 0 min(280px, 78vw);
+    scroll-snap-align: start;
+    background: var(--near-black);
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.35s ease-out, box-shadow 0.35s;
+  }
+
+  .product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(10,7,7,0.4);
+  }
+
+  .product-card__img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease-out;
+  }
+
+  .product-card:hover .product-card__img {
+    transform: scale(1.05);
+  }
+
+  .product-card__body {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .product-card__tag {
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--fuchsia);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+
+  .product-card__name {
+    font-family: 'Cormorant Display', Georgia, serif;
+    font-size: 1.45rem;
+    font-weight: 600;
+    color: var(--silk);
+    line-height: 1.25;
+    margin-bottom: 0.6rem;
+  }
+
+  .product-card__desc {
+    font-size: 0.82rem;
+    color: var(--silk);
+    opacity: 0.6;
+    line-height: 1.85;
+    margin-bottom: 1.2rem;
+  }
+
+  .product-card__price {
+    font-family: 'Cormorant Display', Georgia, serif;
+    font-size: 1.3rem;
+    color: var(--fuchsia);
+    font-weight: 600;
+  }
+
+  /* ── INGREDIENTS SECTION ── */
+  .ingredients {
+    background: var(--near-black);
+    padding: 5rem 1.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ingredients::before {
+    content: '';
+    position: absolute;
+    bottom: -100px; right: -100px;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(200,0,92,0.08) 0%, transparent 70%);
+  }
+
+  .ingredients__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin-top: 3rem;
+  }
+
+  .ingredient-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    padding: 1.75rem 0;
+    border-bottom: 1px solid rgba(244,232,204,0.1);
+    transition: background 0.2s;
+  }
+
+  .ingredient-item:last-child { border-bottom: none; }
+
+  .ingredient-item__icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(200,0,92,0.12);
+    border: 1px solid rgba(200,0,92,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--fuchsia);
+  }
+
+  .ingredient-item__name {
+    font-family: 'Cormorant Display', Georgia, serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--silk);
+    margin-bottom: 0.25rem;
+    line-height: 1.4;
+  }
+
+  .ingredient-item__desc {
+    font-size: 0.83rem;
+    color: var(--silk);
+    opacity: 0.55;
+    line-height: 1.9;
+  }
+
+  @media (min-width: 768px) {
+    .ingredients__grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 0 3rem;
+    }
+  }
+
+  /* ── HERITAGE DIAGONAL ── */
+  .heritage {
+    position: relative;
+    background: var(--near-black);
+    overflow: hidden;
+  }
+
+  .heritage__visual {
+    width: 100%;
+    height: 50vw;
+    min-height: 260px;
+    max-height: 460px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .heritage__visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+  }
+
+  .heritage__visual::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      transparent 40%,
+      var(--near-black) 100%
+    );
+  }
+
+  .heritage__content {
+    padding: 3rem 1.5rem 5rem;
+    position: relative;
+  }
+
+  .heritage__stat-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 2.5rem;
+  }
+
+  .heritage__stat {
+    flex: 1;
+    min-width: 120px;
+  }
+
+  .heritage__stat-num {
+    font-family: 'Cormorant Display', Georgia, serif;
+    font-size: clamp(2.5rem, 7vw, 4rem);
+    font-weight: 600;
+    color: var(--fuchsia);
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+
+  .heritage__stat-label {
+    font-size: 0.78rem;
+    opacity: 0.6;
+    line-height: 1.8;
+  }
+
+  /* ── MISSION / PEACE ── */
+  .mission {
+    background: var(--fuchsia);
+    padding: 5rem 1.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .mission::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 300px; height: 300px;
+    background: url('https://images.unsplash.com/photo-1760963809680-dbc4b0366948?w=600&h=600&fit=crop') center/cover no-repeat;
+    opacity: 0.12;
+    border-radius: 0 0 0 100%;
+  }
+
+  .mission__inner {
+    max-width: 700px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .mission__title {
+    font-family: 'Cormorant Display', Georgia, serif;
+    font-size: clamp(2.2rem, 7vw, 4rem);
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+  }
+
+  .mission__title em {
+    font-style: italic;
+    opacity: 0.75;
+  }
+
+  .mission__body {
+    font-size: 0.95rem;
+    color: var(--white);
+    opacity: 0.88;
+    line-height: 2;
+    margin-bottom: 2.5rem;
+    max-width: 52ch;
+  }
+
+  .mission__pillars {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .mission__pillar {
+    background: rgba(253,250,245,0.12);
+    border: 1px solid rgba(253,250,245,0.18);
+    border-radius: 4px;
+    padding: 1.25rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .mission__pillar-icon {
+    color: var(--white);
+    flex-shrink: 0;
+    margin-top: 0.15rem;
+  }
+
+  .mission__pillar-text {
+    font-size: 0.82rem;
+    color: var(--white);
+    font-weight: 500;
+    line-height: 1.75;
+  }
+
+  /* ── TESTIMONIALS ── */
+  .testimonials {
+    background: var(--near-black-soft);
+    padding: 5rem 1.5rem;
+  }
+
+  .testimonials .section-title {
+    color: var(--silk);
+  }
+
+  .testi-strip {
+    display: flex;
+    gap: 1.25rem;
+    overflow-x: auto;
+    padding-bottom: 1.25rem;
+    margin-top: 2.5rem;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: var(--fuchsia) var(--near-black);
+  }
+
+  .testi-strip::-webkit-scrollbar { height: 4px; }
+  .testi-strip::-webkit-scrollbar-track { background: var(--near-black); }
+  .testi-strip::-webkit-scrollbar-thumb { background: var(--fuchsia); border-radius: 2px; }
+
+  .testi-card {
+    flex: 0 0 min(300px, 82vw);
+    scroll-snap-align: start;
+    background: rgba(244,232,204,0.04);
+    border: 1px solid rgba(244,232,204,0.1);
+    border-radius: 2px;
+    padding: 2rem 1.5rem;
+    transition: border-color 0.3s, background 0.3s;
+  }
+
+  .testi-card:hover {
+    border-color: rgba(200,0,92,0.4);
+    background: rgba(200,0,92,0.04);
+  }
+
+  .testi-card__quote {
+    font-family: 'Cormorant Display', Georgia, serif;
+    font-size: 1.2rem;
+    font-style: italic;
+    color: var(--silk);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .testi-card__stars {
+    display: flex;
+    gap: 0.2rem;
+    color: var(--fuchsia);
+    margin-bottom: 1rem;
+  }
+
+  .testi-card__author {
+    font-size: 0.8rem;
+    color: var(--silk);
+    opacity: 0.55;
+    font-weight: 500;
+  }
+
+  /* ── DONATION ── */
+  .donation {
+    background: var(--silk);
+    padding: 5rem 1.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .donation__inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    align-items: center;
+  }
+
+  .donation__img-wrap {
+    border-radius: 50% 20% 50% 20% / 20% 50% 20% 50%;
+    overflow: hidden;
+    aspect-ratio: 1;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .donation__img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease-out;
+  }
+
+  .donation__img-wrap:hover img {
+    transform: scale(1.05);
+  }
+
+  .donation__eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--fuchsia);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+
+  .donation__title {
+    font-family: 'Cormorant Display', Georgia, serif;
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    font-weight: 600;
+    color: var(--near-black);
+    line-height: 1.15;
+    margin-bottom: 1.2rem;
+  }
+
+  .donation__title em {
+    font-style: italic;
+    color: var(--fuchsia);
+  }
+
+  .donation__body {
+    font-size: 0.9rem;
+    color: var(--near-black);
+    opacity: 0.7;
+    line-height: 1.9;
+    margin-bottom: 2rem;
+    max-width: 48ch;
+  }
+
+  @media (min-width: 768px) {
+    .donation__inner {
+      grid-template-columns: 1fr 1fr;
+    }
+    .donation__img-wrap {
+      max-width: none;
+    }
+  }
+
+  /* ── CONTACT ── */
+  .contact {
+    background: var(--near-black);
+    padding: 5rem 1.5rem;
+  }
+
+  .contact__inner {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .contact__title {
+    font-family: 'Cormorant Display', Georgia, serif;
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    font-weight: 600;
+    color: var(--silk);
+    line-height: 1.15;
+    margin-bottom: 1rem;
+  }
+
+  .contact__sub {
+    font-size: 0.9rem;
+    color: var(--silk);
+    opacity: 0.6;
+    line-height: 1.9;
+    margin-bottom: 3rem;
+  }
+
+  .contact__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .contact__input {
+    background: rgba(244,232,204,0.05);
+    border: 1px solid rgba(244,232,204,0.15);
+    color: var(--silk);
+    font-family: 'IBM Plex Sans Thai', sans-serif;
+    font-size: 0.9rem;
+    padding: 0.9em 1.2em;
+    outline: none;
+    width: 100%;
+    transition: border-color 0.25s, background 0.25s;
+    min-height: 44px;
+    border-radius: 2px;
+  }
+
+  .contact__input::placeholder { opacity: 0.4; color: var(--silk); }
+  .contact__input:focus {
+    border-color: var(--fuchsia);
+    background: rgba(200,0,92,0.04);
+  }
+
+  textarea.contact__input {
+    min-height: 120px;
+    resize: vertical;
+    padding-top: 1em;
+  }
+
+  .contact__info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 3rem;
+    padding-top: 3rem;
+    border-top: 1px solid rgba(244,232,204,0.1);
+  }
+
+  .contact__info-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.85rem;
+    color: var(--silk);
+    opacity: 0.7;
+    justify-content: center;
+  }
+
+  .contact__info-item a {
+    color: var(--silk);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .contact__info-item a:hover { color: var(--fuchsia); }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: var(--near-black-soft);
+    border-top: 1px solid rgba(244,232,204,0.08);
+    padding: 2.5rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+    text-align: center;
+  }
+
+  .footer__logo {
+    font-family: 'Cormorant Display', Georgia, serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--silk);
+    letter-spacing: 0.04em;
+  }
+
+  .footer__logo span { color: var(--fuchsia); }
+
+  .footer__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+  }
+
+  .footer__links a {
+    color: var(--silk);
+    text-decoration: none;
+    font-size: 0.78rem;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+    padding: 0.3rem;
+  }
+
+  .footer__links a:hover { opacity: 1; }
+
+  .footer__copy {
+    font-size: 0.72rem;
+    color: var(--silk);
+    opacity: 0.3;
+  }
+
+  .footer__social {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .footer__social a {
+    width: 36px;
+    height: 36px;
+    border: 1px solid rgba(244,232,204,0.18);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--silk);
+    opacity: 0.6;
+    text-decoration: none;
+    transition: opacity 0.2s, border-color 0.2s, color 0.2s;
+  }
+
+  .footer__social a:hover {
+    opacity: 1;
+    border-color: var(--fuchsia);
+    color: var(--fuchsia);
+  }
+
+  /* ── THAI LINE-HEIGHT / DISPLAY OVERRIDE ── */
+  html[lang="th"] .display { line-height: 1.5; }
+  html[lang="th"] .hero__headline { line-height: 1.4; }
+  html[lang="th"] .split-panel__headline { line-height: 1.45; }
+
+  /* ── THAI LETTER-SPACING OVERRIDE ── */
+  html[lang="th"] [data-lang-th],
+  html[lang="th"] .hero__eyebrow,
+  html[lang="th"] .split-panel__eyebrow,
+  html[lang="th"] .section-eyebrow,
+  html[lang="th"] .product-badge,
+  html[lang="th"] .product-card__tag,
+  html[lang="th"] .donation__eyebrow,
+  html[lang="th"] .btn-primary,
+  html[lang="th"] .btn-outline,
+  html[lang="th"] .manifesto__attr,
+  html[lang="th"] .footer__links a,
+  html[lang="th"] .footer__copy {
+    letter-spacing: 0;
+  }
+
+  /* ── DIVIDER ── */
+  .divider-diagonal {
+    height: 60px;
+    background: inherit;
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
+  }
+</style>
+</head>
+<body>
+
+<!-- ── NAVIGATION ── -->
+<nav class="nav" id="nav">
+  <a href="#" class="nav__logo">ADINAHT<span>.</span></a>
+  <div class="nav__right">
+    <ul class="nav__links">
+      <li><a href="#products" data-lang-th="ผลิตภัณฑ์" data-lang-en="Products">ผลิตภัณฑ์</a></li>
+      <li><a href="#heritage" data-lang-th="มรดกไทย" data-lang-en="Heritage">มรดกไทย</a></li>
+      <li><a href="#mission" data-lang-th="พันธกิจ" data-lang-en="Mission">พันธกิจ</a></li>
+      <li><a href="#donate" data-lang-th="บริจาค" data-lang-en="Donate">บริจาค</a></li>
+      <li><a href="#contact" data-lang-th="ติดต่อ" data-lang-en="Contact">ติดต่อ</a></li>
+    </ul>
+    <button class="lang-sw" aria-label="Toggle language">
+      <i data-lucide="globe" width="14" height="14"></i>
+      <span class="lang-sw__label">TH</span>
+    </button>
+    <button class="nav__hamburger" id="hamburgerBtn" aria-label="Open menu">
+      <i data-lucide="menu" width="22" height="22"></i>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile menu overlay -->
+<div class="nav__overlay" id="navOverlay"></div>
+
+<!-- Mobile drawer -->
+<nav class="nav__mobile" id="mobileNav">
+  <button class="nav__close" id="navClose" aria-label="Close menu">
+    <i data-lucide="x" width="22" height="22"></i>
+  </button>
+  <a href="#products" data-lang-th="ผลิตภัณฑ์" data-lang-en="Products">ผลิตภัณฑ์</a>
+  <a href="#heritage" data-lang-th="มรดกไทย" data-lang-en="Heritage">มรดกไทย</a>
+  <a href="#mission" data-lang-th="พันธกิจ" data-lang-en="Mission">พันธกิจ</a>
+  <a href="#donate" data-lang-th="บริจาค" data-lang-en="Donate">บริจาค</a>
+  <a href="#contact" data-lang-th="ติดต่อ" data-lang-en="Contact">ติดต่อ</a>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero__image-wrap">
+    <img
+      src="https://images.unsplash.com/photo-1454873019514-eae2f086587a?w=1600&h=1000&fit=crop"
+      alt="Thai herbal luxury soap"
+    >
+  </div>
+  <div class="hero__content">
+    <p class="hero__eyebrow" data-lang-th="อาดินาถเพื่อสากล ประเทศไทย" data-lang-en="Adinaht International Thailand">อาดินาถเพื่อสากล ประเทศไทย</p>
+    <h1 class="hero__headline display">
+      <span data-lang-th="ความ" data-lang-en="BE">ความ</span><em data-lang-th="งาม" data-lang-en="AUTY">งาม</em>
+      <span class="break" data-lang-th="ที่กล้าแกร่ง" data-lang-en="AS BOLD">ที่กล้าแกร่ง</span>
+    </h1>
+    <p class="hero__subhead" data-lang-th="สมุนไพรไทยแท้ สกัดจากธรรมชาติ สู่ผลิตภัณฑ์ดูแลร่างกายระดับพรีเมียม เพื่อความงามที่แท้จริงและสันติภาพสากล" data-lang-en="Pure Thai botanicals. Rare heritage extracts. Luxury care for body and soul — and a bridge to international peace.">สมุนไพรไทยแท้ สกัดจากธรรมชาติ สู่ผลิตภัณฑ์ดูแลร่างกายระดับพรีเมียม เพื่อความงามที่แท้จริงและสันติภาพสากล</p>
+    <div class="hero__cta-row">
+      <a href="#products" class="btn-primary">
+        <i data-lucide="sparkles" width="16" height="16"></i>
+        <span data-lang-th="ชมผลิตภัณฑ์" data-lang-en="Explore Products">ชมผลิตภัณฑ์</span>
+      </a>
+      <a href="#mission" class="btn-outline">
+        <span data-lang-th="พันธกิจของเรา" data-lang-en="Our Mission">พันธกิจของเรา</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── MANIFESTO BAND ── -->
+<div class="manifesto reveal">
+  <p class="manifesto__quote" data-lang-th="&ldquo;ความงามคือสะพานเชื่อมจิตใจ — จากภูมิปัญญาไทยสู่หัวใจโลก&rdquo;" data-lang-en="&ldquo;Beauty is a bridge between souls — from Thai wisdom to the heart of the world.&rdquo;">"ความงามคือสะพานเชื่อมจิตใจ — จากภูมิปัญญาไทยสู่หัวใจโลก"</p>
+  <p class="manifesto__attr" data-lang-th="— ปรัชญาแห่งอาดินาถ" data-lang-en="— The Adinaht Philosophy">— ปรัชญาแห่งอาดินาถ</p>
+</div>
+
+<!-- ── SPLIT PANEL 1 ── -->
+<section class="split-panel reveal-left">
+  <div class="split-panel__image">
+    <img
+      src="https://images.unsplash.com/photo-1778410238722-b691772411aa?w=900&h=1100&fit=crop"
+      alt="Luxury body scrub product"
+    >
+  </div>
+  <div class="split-panel__text">
+    <div class="split-panel__num display">01</div>
+    <span class="split-panel__eyebrow" data-lang-th="สครับระดับพรีเมียม" data-lang-en="Premium Scrub">สครับระดับพรีเมียม</span>
+    <h2 class="split-panel__headline display">
+      <span data-lang-th="ขัด" data-lang-en="SCRUB">ขัด</span>
+      <span class="stagger" data-lang-th="ให้ผิว" data-lang-en="INTO">ให้ผิว</span>
+      <span data-lang-th="ลุกโชน" data-lang-en="FIRE">ลุกโชน</span>
+    </h2>
+    <span class="product-badge" data-lang-th="สครับสมุนไพร" data-lang-en="Herbal Scrub">สครับสมุนไพร</span>
+    <p class="split-panel__body" data-lang-th="สครับมะขามและข้าวกล้องออร์แกนิก ผสานน้ำมันมะพร้าวสกัดเย็น ขัดเซลล์ผิวเก่า เผยผิวใสสว่างอย่างอ่อนโยน กลิ่นหอมอบอวลของตะไคร้และขมิ้น" data-lang-en="Organic tamarind and brown rice scrub blended with cold-pressed coconut oil. Gently resurfaces skin to reveal radiant clarity — scented with lemongrass and golden turmeric.">สครับมะขามและข้าวกล้องออร์แกนิก ผสานน้ำมันมะพร้าวสกัดเย็น ขัดเซลล์ผิวเก่า เผยผิวใสสว่างอย่างอ่อนโยน กลิ่นหอมอบอวลของตะไคร้และขมิ้น</p>
+    <a href="#products" class="btn-primary">
+      <span data-lang-th="ดูเพิ่มเติม" data-lang-en="Discover More">ดูเพิ่มเติม</span>
+      <i data-lucide="arrow-right" width="15" height="15"></i>
+    </a>
+  </div>
+</section>
+
+<!-- ── SPLIT PANEL 2 ── -->
+<section class="split-panel reverse reveal-right">
+  <div class="split-panel__image">
+    <img
+      src="https://images.unsplash.com/photo-1768483018807-bd0b9ab86539?w=900&h=1100&fit=crop"
+      alt="Natural Thai skincare collection"
+    >
+  </div>
+  <div class="split-panel__text silk-bg">
+    <div class="split-panel__num display">02</div>
+    <span class="split-panel__eyebrow" data-lang-th="สบู่สมุนไพรแท้" data-lang-en="Pure Herbal Soap">สบู่สมุนไพรแท้</span>
+    <h2 class="split-panel__headline display">
+      <span data-lang-th="สะอาด" data-lang-en="PURE">สะอาด</span>
+      <span class="stagger" data-lang-th="ดั่ง" data-lang-en="LIKE">ดั่ง</span>
+      <span data-lang-th="ดอกบัว" data-lang-en="LOTUS">ดอกบัว</span>
+    </h2>
+    <span class="product-badge" data-lang-th="สบู่ก้อน" data-lang-en="Bar Soap">สบู่ก้อน</span>
+    <p class="split-panel__body" data-lang-th="สบู่บำรุงผิวจากบัวหลวงศักดิ์สิทธิ์แห่งสยาม ผสมกับน้ำผึ้งป่าแท้และดอกมะลิสด ชำระล้างพร้อมหล่อเลี้ยงผิวให้นุ่มชุ่มชื้นตลอดวัน" data-lang-en="A sacred Siamese lotus cleansing bar with pure wild honey and fresh jasmine. Cleanses while deeply nourishing — skin left luminous, soft, and subtly scented all day.">สบู่บำรุงผิวจากบัวหลวงศักดิ์สิทธิ์แห่งสยาม ผสมกับน้ำผึ้งป่าแท้และดอกมะลิสด ชำระล้างพร้อมหล่อเลี้ยงผิวให้นุ่มชุ่มชื้นตลอดวัน</p>
+    <a href="#products" class="btn-primary">
+      <span data-lang-th="ดูเพิ่มเติม" data-lang-en="Discover More">ดูเพิ่มเติม</span>
+      <i data-lucide="arrow-right" width="15" height="15"></i>
+    </a>
+  </div>
+</section>
+
+<!-- ── PRODUCTS SECTION ── -->
+<section class="products-section" id="products">
+  <div class="section-header reveal">
+    <p class="section-eyebrow" data-lang-th="คอลเลกชันทั้งหมด" data-lang-en="Full Collection">คอลเลกชันทั้งหมด</p>
+    <h2 class="section-title display">
+      <span data-lang-th="ผลิตภัณฑ์" data-lang-en="Crafted">ผลิตภัณฑ์</span>
+      <em data-lang-th="คัดสรรพิเศษ" data-lang-en="with Purpose"> คัดสรรพิเศษ</em>
+    </h2>
+  </div>
+
+  <div class="product-strip reveal">
+    <!-- Card 1 -->
+    <div class="product-card">
+      <img
+        class="product-card__img"
+        src="https://images.unsplash.com/photo-1454873019514-eae2f086587a?w=560&h=520&fit=crop"
+        alt="Thai herbal soap collection"
+      >
+      <div class="product-card__body">
+        <span class="product-card__tag" data-lang-th="สบู่ก้อน" data-lang-en="Bar Soap">สบู่ก้อน</span>
+        <h3 class="product-card__name display" data-lang-th="สบู่ขมิ้นและตะไคร้" data-lang-en="Turmeric & Lemongrass Soap">สบู่ขมิ้นและตะไคร้</h3>
+        <p class="product-card__desc" data-lang-th="ฟื้นฟูผิว ต้านอนุมูลอิสระ กระจ่างใสจากภายใน" data-lang-en="Restores radiance, fights free radicals, brightens from within.">ฟื้นฟูผิว ต้านอนุมูลอิสระ กระจ่างใสจากภายใน</p>
+        <span class="product-card__price display">฿380</span>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="product-card">
+      <img
+        class="product-card__img"
+        src="https://images.unsplash.com/photo-1778410238722-b691772411aa?w=560&h=520&fit=crop"
+        alt="Body scrub luxury"
+      >
+      <div class="product-card__body">
+        <span class="product-card__tag" data-lang-th="สครับร่างกาย" data-lang-en="Body Scrub">สครับร่างกาย</span>
+        <h3 class="product-card__name display" data-lang-th="สครับมะพร้าวและมะขาม" data-lang-en="Coconut & Tamarind Scrub">สครับมะพร้าวและมะขาม</h3>
+        <p class="product-card__desc" data-lang-th="ขัดเซลล์ผิวเก่า บำรุงลึก ผิวเด้งเนียน" data-lang-en="Exfoliates dead cells, deeply conditions, leaves skin bouncy and smooth.">ขัดเซลล์ผิวเก่า บำรุงลึก ผิวเด้งเนียน</p>
+        <span class="product-card__price display">฿520</span>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="product-card">
+      <img
+        class="product-card__img"
+        src="https://images.unsplash.com/photo-1615485500834-bc10199bc727?w=560&h=520&fit=crop"
+        alt="Turmeric herbal powder"
+      >
+      <div class="product-card__body">
+        <span class="product-card__tag" data-lang-th="สครับร่างกาย" data-lang-en="Body Scrub">สครับร่างกาย</span>
+        <h3 class="product-card__name display" data-lang-th="สครับขมิ้นทองคำ" data-lang-en="Golden Turmeric Scrub">สครับขมิ้นทองคำ</h3>
+        <p class="product-card__desc" data-lang-th="สกัดจากขมิ้นชันออร์แกนิก ลดรอยด่างดำ ผิวส่องแสง" data-lang-en="Organic curcumin extract. Visibly reduces dark spots, leaves skin luminous.">สกัดจากขมิ้นชันออร์แกนิก ลดรอยด่างดำ ผิวส่องแสง</p>
+        <span class="product-card__price display">฿490</span>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="product-card">
+      <img
+        class="product-card__img"
+        src="https://images.unsplash.com/photo-1623171403798-51cc000d569a?w=560&h=520&fit=crop"
+        alt="Jasmine flower Thai beauty"
+      >
+      <div class="product-card__body">
+        <span class="product-card__tag" data-lang-th="สบู่ก้อน" data-lang-en="Bar Soap">สบู่ก้อน</span>
+        <h3 class="product-card__name display" data-lang-th="สบู่มะลิและน้ำผึ้ง" data-lang-en="Jasmine & Wild Honey Soap">สบู่มะลิและน้ำผึ้ง</h3>
+        <p class="product-card__desc" data-lang-th="อ่อนโยนล้างสะอาด หล่อเลี้ยงผิวให้นุ่มชุ่มชื้น กลิ่นหอมละมุน" data-lang-en="Gently cleanses and deeply nourishes. Delicate floral scent that lingers.">อ่อนโยนล้างสะอาด หล่อเลี้ยงผิวให้นุ่มชุ่มชื้น กลิ่นหอมละมุน</p>
+        <span class="product-card__price display">฿420</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── INGREDIENTS ── -->
+<section class="ingredients" id="ingredients">
+  <div class="section-header reveal">
+    <p class="section-eyebrow" data-lang-th="ส่วนผสมบริสุทธิ์" data-lang-en="Pure Ingredients">ส่วนผสมบริสุทธิ์</p>
+    <h2 class="section-title display" style="color: var(--silk);">
+      <span data-lang-th="พลังจาก" data-lang-en="Power from">พลังจาก</span>
+      <em style="color: var(--fuchsia);" data-lang-th="ธรรมชาติไทย" data-lang-en="Thai Nature"> ธรรมชาติไทย</em>
+    </h2>
+  </div>
+
+  <div class="ingredients__grid">
+    <div class="ingredient-item reveal">
+      <div class="ingredient-item__icon">
+        <i data-lucide="sun" width="20" height="20"></i>
+      </div>
+      <div>
+        <h3 class="ingredient-item__name display" data-lang-th="ขมิ้นชัน" data-lang-en="Turmeric Root">ขมิ้นชัน</h3>
+        <p class="ingredient-item__desc" data-lang-th="สมุนไพรทองคำแห่งสยาม ต้านการอักเสบ ลดรอยด่างดำ ให้ผิวกระจ่างใสเป็นธรรมชาติ" data-lang-en="Siam's golden herb. Anti-inflammatory, reduces hyperpigmentation, naturally brightens complexion.">สมุนไพรทองคำแห่งสยาม ต้านการอักเสบ ลดรอยด่างดำ ให้ผิวกระจ่างใสเป็นธรรมชาติ</p>
+      </div>
+    </div>
+
+    <div class="ingredient-item reveal">
+      <div class="ingredient-item__icon">
+        <i data-lucide="leaf" width="20" height="20"></i>
+      </div>
+      <div>
+        <h3 class="ingredient-item__name display" data-lang-th="ตะไคร้" data-lang-en="Lemongrass">ตะไคร้</h3>
+        <p class="ingredient-item__desc" data-lang-th="กลิ่นหอมสดชื่น ต้านเชื้อแบคทีเรีย ลดการอักเสบ ทำความสะอาดผิวอย่างอ่อนโยน" data-lang-en="Fresh citrus scent, antibacterial, reduces inflammation. Cleanses skin with gentle care.">กลิ่นหอมสดชื่น ต้านเชื้อแบคทีเรีย ลดการอักเสบ ทำความสะอาดผิวอย่างอ่อนโยน</p>
+      </div>
+    </div>
+
+    <div class="ingredient-item reveal">
+      <div class="ingredient-item__icon">
+        <i data-lucide="flower-2" width="20" height="20"></i>
+      </div>
+      <div>
+        <h3 class="ingredient-item__name display" data-lang-th="บัวหลวง" data-lang-en="Sacred Lotus">บัวหลวง</h3>
+        <p class="ingredient-item__desc" data-lang-th="สัญลักษณ์แห่งความบริสุทธิ์ มีคุณสมบัติต้านอนุมูลอิสระสูง ฟื้นฟูและบำรุงผิวให้ชุ่มชื้น" data-lang-en="Symbol of purity. Exceptionally high in antioxidants. Restores and deeply moisturizes skin.">สัญลักษณ์แห่งความบริสุทธิ์ มีคุณสมบัติต้านอนุมูลอิสระสูง ฟื้นฟูและบำรุงผิวให้ชุ่มชื้น</p>
+      </div>
+    </div>
+
+    <div class="ingredient-item reveal">
+      <div class="ingredient-item__icon">
+        <i data-lucide="droplets" width="20" height="20"></i>
+      </div>
+      <div>
+        <h3 class="ingredient-item__name display" data-lang-th="มะพร้าวบริสุทธิ์" data-lang-en="Virgin Coconut">มะพร้าวบริสุทธิ์</h3>
+        <p class="ingredient-item__desc" data-lang-th="น้ำมันมะพร้าวสกัดเย็น บำรุงและเสริมความชุ่มชื้นให้ผิวลึกถึงชั้นใต้ผิว ปกป้องผิวตลอดวัน" data-lang-en="Cold-pressed coconut oil. Nourishes and locks in moisture deep beneath the surface. All-day protection.">น้ำมันมะพร้าวสกัดเย็น บำรุงและเสริมความชุ่มชื้นให้ผิวลึกถึงชั้นใต้ผิว ปกป้องผิวตลอดวัน</p>
+      </div>
+    </div>
+
+    <div class="ingredient-item reveal">
+      <div class="ingredient-item__icon">
+        <i data-lucide="wind" width="20" height="20"></i>
+      </div>
+      <div>
+        <h3 class="ingredient-item__name display" data-lang-th="มะลิสด" data-lang-en="Fresh Jasmine">มะลิสด</h3>
+        <p class="ingredient-item__desc" data-lang-th="ดอกไม้มงคลของไทย กลิ่นหอมบริสุทธิ์ ลดความเครียด ให้ความรู้สึกสงบและผ่อนคลาย" data-lang-en="Thailand's sacred blossom. Purifying, stress-reducing, and calming — a scent that serenades the senses.">ดอกไม้มงคลของไทย กลิ่นหอมบริสุทธิ์ ลดความเครียด ให้ความรู้สึกสงบและผ่อนคลาย</p>
+      </div>
+    </div>
+
+    <div class="ingredient-item reveal">
+      <div class="ingredient-item__icon">
+        <i data-lucide="sparkles" width="20" height="20"></i>
+      </div>
+      <div>
+        <h3 class="ingredient-item__name display" data-lang-th="น้ำผึ้งป่าแท้" data-lang-en="Wild Forest Honey">น้ำผึ้งป่าแท้</h3>
+        <p class="ingredient-item__desc" data-lang-th="สกัดจากรังผึ้งป่าภาคเหนือ อุดมด้วยเอนไซม์ธรรมชาติ เสริมความชุ่มชื้นและป้องกันผิวจากสิ่งแวดล้อม" data-lang-en="Sourced from northern Thai forest hives. Enzyme-rich, deeply moisturizing, and protective against environmental stressors.">สกัดจากรังผึ้งป่าภาคเหนือ อุดมด้วยเอนไซม์ธรรมชาติ เสริมความชุ่มชื้นและป้องกันผิวจากสิ่งแวดล้อม</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── HERITAGE ── -->
+<section class="heritage" id="heritage">
+  <div class="heritage__visual">
+    <img
+      src="https://images.unsplash.com/photo-1593947072822-55e52cc40bcb?w=1400&h=700&fit=crop"
+      alt="Thai flowers and traditions"
+    >
+  </div>
+  <div class="heritage__content">
+    <div class="reveal">
+      <p class="section-eyebrow" data-lang-th="รากเหง้าแห่งสยาม" data-lang-en="Roots of Siam">รากเหง้าแห่งสยาม</p>
+      <h2 class="section-title display" style="color: var(--silk);">
+        <span data-lang-th="มรดกภูมิปัญญา" data-lang-en="Wisdom">มรดกภูมิปัญญา</span>
+        <em style="color: var(--fuchsia);" data-lang-th="ไทยแท้" data-lang-en="Inherited"> ไทยแท้</em>
+      </h2>
+      <p style="font-size: 0.9rem; opacity: 0.6; line-height: 2; max-width: 50ch; margin-top: 1rem;" data-lang-th="อาดินาถเพื่อสากลสืบสานตำรับสมุนไพรโบราณที่ถูกส่งต่อมาหลายร้อยปี นำภูมิปัญญาไทยมาผสานกับเทคโนโลยีทันสมัย เพื่อสร้างผลิตภัณฑ์ที่ดีที่สุดให้กับลูกค้าทั่วโลก" data-lang-en="Adinaht International preserves ancient herbal traditions passed down for centuries — weaving Thai botanical wisdom with modern formulation science to bring the world's finest care products to global customers.">อาดินาถเพื่อสากลสืบสานตำรับสมุนไพรโบราณที่ถูกส่งต่อมาหลายร้อยปี นำภูมิปัญญาไทยมาผสานกับเทคโนโลยีทันสมัย เพื่อสร้างผลิตภัณฑ์ที่ดีที่สุดให้กับลูกค้าทั่วโลก</p>
+    </div>
+    <div class="heritage__stat-row">
+      <div class="heritage__stat reveal">
+        <div class="heritage__stat-num display">300+</div>
+        <p class="heritage__stat-label" data-lang-th="ปีแห่งภูมิปัญญาสมุนไพรไทย" data-lang-en="Years of Thai herbal wisdom">ปีแห่งภูมิปัญญาสมุนไพรไทย</p>
+      </div>
+      <div class="heritage__stat reveal">
+        <div class="heritage__stat-num display">40+</div>
+        <p class="heritage__stat-label" data-lang-th="ส่วนผสมจากธรรมชาติแท้" data-lang-en="Pure natural ingredients">ส่วนผสมจากธรรมชาติแท้</p>
+      </div>
+      <div class="heritage__stat reveal">
+        <div class="heritage__stat-num display">18</div>
+        <p class="heritage__stat-label" data-lang-th="ประเทศที่ส่งออก" data-lang-en="Countries we export to">ประเทศที่ส่งออก</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── MISSION ── -->
+<section class="mission" id="mission">
+  <div class="mission__inner reveal">
+    <p class="section-eyebrow" style="color: rgba(253,250,245,0.7);" data-lang-th="พันธกิจสากล" data-lang-en="Global Mission">พันธกิจสากล</p>
+    <h2 class="mission__title display">
+      <span data-lang-th="ความงาม" data-lang-en="Beauty">ความงาม</span>
+      <em data-lang-th="เพื่อ" data-lang-en="for"> เพื่อ</em>
+      <span data-lang-th="สันติภาพ" data-lang-en="Peace">สันติภาพ</span>
+    </h2>
+    <p class="mission__body" data-lang-th="เรามีความเชื่อว่าผลิตภัณฑ์ที่ดีสามารถสร้างการเปลี่ยนแปลงในโลกได้ ทุกการซื้อผลิตภัณฑ์ของอาดินาถช่วยสนับสนุนกิจกรรมส่งเสริมสันติภาพสากล การอนุรักษ์วัฒนธรรมไทย และการทำบุญเพื่อสังคม" data-lang-en="We believe fine products can change the world. Every Adinaht purchase supports international peace initiatives, Thai cultural preservation, and meaningful merit-making for communities in need.">เรามีความเชื่อว่าผลิตภัณฑ์ที่ดีสามารถสร้างการเปลี่ยนแปลงในโลกได้ ทุกการซื้อผลิตภัณฑ์ของอาดินาถช่วยสนับสนุนกิจกรรมส่งเสริมสันติภาพสากล การอนุรักษ์วัฒนธรรมไทย และการทำบุญเพื่อสังคม</p>
+
+    <div class="mission__pillars">
+      <div class="mission__pillar">
+        <i class="mission__pillar-icon" data-lucide="globe-2" width="18" height="18"></i>
+        <span class="mission__pillar-text" data-lang-th="สันติภาพสากล" data-lang-en="International Peace">สันติภาพสากล</span>
+      </div>
+      <div class="mission__pillar">
+        <i class="mission__pillar-icon" data-lucide="temple" width="18" height="18"></i>
+        <span class="mission__pillar-text" data-lang-th="อนุรักษ์วัฒนธรรม" data-lang-en="Cultural Preservation">อนุรักษ์วัฒนธรรม</span>
+      </div>
+      <div class="mission__pillar">
+        <i class="mission__pillar-icon" data-lucide="heart-handshake" width="18" height="18"></i>
+        <span class="mission__pillar-text" data-lang-th="ทำบุญเพื่อสังคม" data-lang-en="Merit-Making">ทำบุญเพื่อสังคม</span>
+      </div>
+      <div class="mission__pillar">
+        <i class="mission__pillar-icon" data-lucide="award" width="18" height="18"></i>
+        <span class="mission__pillar-text" data-lang-th="ประเพณีที่ดีงาม" data-lang-en="Good Traditions">ประเพณีที่ดีงาม</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ── -->
+<section class="testimonials">
+  <div class="section-header reveal">
+    <p class="section-eyebrow" data-lang-th="เสียงจากลูกค้า" data-lang-en="Customer Voices">เสียงจากลูกค้า</p>
+    <h2 class="section-title display">
+      <span data-lang-th="ความรู้สึก" data-lang-en="Felt on">ความรู้สึก</span>
+      <em data-lang-th="ที่สัมผัสได้" data-lang-en="the Skin"> ที่สัมผัสได้</em>
+    </h2>
+  </div>
+
+  <div class="testi-strip reveal">
+    <div class="testi-card">
+      <div class="testi-card__stars">
+        <i data-lucide="star" width="14" height="14"></i>
+        <i data-lucide="star" width="14" height="14"></i>
+        <i data-lucide="star" width="14" height="14"></i>
+        <i data-lucide="star" width="14" height="14"></i>
+        <i data-lucide="star" width="14" height="14"></i>
+      </div>
+      <p class="testi-card__quote" data-lang-th="&ldquo;กลิ่นหอมของสครับมะขามทำให้รู้สึกเหมือนได้นวดสปาที่หรูหราสุดๆ ผิวเนียนนุ่มและกระจ่างใสมากขึ้นจริงๆ&rdquo;" data-lang-en="&ldquo;The tamarind scrub scent transports you to the most opulent spa experience. Skin genuinely smoother and more luminous after just a week.&rdquo;">"กลิ่นหอมของสครับมะขามทำให้รู้สึกเหมือนได้นวดสปาที่หรูหราสุดๆ ผิวเนียนนุ่มและกระจ่างใสมากขึ้นจริงๆ"</p>
+      <p class="testi-card__author" data-lang-th="— สุธิดา ว. กรุงเทพมหานคร" data-lang-en="— Suthida W., Bangkok">— สุธิดา ว. กรุงเทพมหานคร</p>
+    </div>
+
+    <div class="testi-card">
+      <div class="testi-card__stars">
+        <i data-lucide="star" width="14" height="14"></i>
+        <i data-lucide="star" width="14" height="14"></i>
+        <i data-lucide="star" width="14" height="14"></i>
+        <i data-lucide="star" width="14" height="14"></i>
+        <i data-lucide="star" width="14" height="14"></i>
+      </div>
+      <p class="testi-card__quote" data-lang-th="&ldquo;I discovered these soaps at a hotel in Chiang Mai and ordered three boxes immediately. The jasmine bar is the finest soap I have ever used.&rdquo;" data-lang-en="&ldquo;I discovered these soaps at a hotel in Chiang Mai and ordered three boxes immediately. The jasmine bar is the finest soap I have ever used.&rdquo;">"I discovered these soaps at a hotel in Chiang Mai and ordered three boxes immediately. The jasmine bar is the finest soap I have ever used."</p>
+      <p class="testi-card__author" data-lang-th="— Elena M. มิลาน อิตาลี" data-lang-en="— Elena M., Milan, Italy">— Elena M., Milan, Italy</p>
+    </div>
+
+    <div class="testi-card">
+      <div class="testi-card__stars">
+        <i data-lucide="star" width="14" height="14"></i>
+        <i data-lucide="star" width="14" height="14"></i>
+        <i data-lucide="star" width="14" height="14"></i>
+        <i data-lucide="star" width="14" height="14"></i>
+        <i data-lucide="star" width="14" height="14"></i>
+      </div>
+      <p class="testi-card__quote" data-lang-th="&ldquo;สบู่บัวหลวงใช้แล้วผิวหน้านุ่มขึ้นมาก ชอบที่ผลิตจากสมุนไพรไทยแท้ๆ และรู้ว่าเงินที่จ่ายยังช่วยสังคมด้วย&rdquo;" data-lang-en="&ldquo;The lotus soap has transformed my skin texture. I love knowing my purchase supports Thai culture and community causes.&rdquo;">"สบู่บัวหลวงใช้แล้วผิวหน้านุ่มขึ้นมาก ชอบที่ผลิตจากสมุนไพรไทยแท้ๆ และรู้ว่าเงินที่จ่ายยังช่วยสังคมด้วย"</p>
+      <p class="testi-card__author" data-lang-th="— นภัสสร พ. เชียงใหม่" data-lang-en="— Naphatson P., Chiang Mai">— นภัสสร พ. เชียงใหม่</p>
+    </div>
+
+    <div class="testi-card">
+      <div class="testi-card__stars">
+        <i data-lucide="star" width="14" height="14"></i>
+        <i data-lucide="star" width="14" height="14"></i>
+        <i data-lucide="star" width="14" height="14"></i>
+        <i data-lucide="star" width="14" height="14"></i>
+        <i data-lucide="star" width="14" height="14"></i>
+      </div>
+      <p class="testi-card__quote" data-lang-th="&ldquo;สั่งซื้อเป็นของขวัญให้แม่ ท่านชอบมากโดยเฉพาะสครับขมิ้นทองคำ กลิ่นหอมธรรมชาติและผิวดีขึ้นสังเกตได้ชัด&rdquo;" data-lang-en="&ldquo;Ordered as a gift for my mother — she absolutely loves the golden turmeric scrub. Natural scent and visibly improved skin tone.&rdquo;">"สั่งซื้อเป็นของขวัญให้แม่ ท่านชอบมากโดยเฉพาะสครับขมิ้นทองคำ กลิ่นหอมธรรมชาติและผิวดีขึ้นสังเกตได้ชัด"</p>
+      <p class="testi-card__author" data-lang-th="— พิชัย ต. กรุงเทพมหานคร" data-lang-en="— Pichai T., Bangkok">— พิชัย ต. กรุงเทพมหานคร</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── DONATION ── -->
+<section class="donation" id="donate">
+  <div class="donation__inner">
+    <div class="donation__img-wrap reveal-left">
+      <img
+        src="https://images.unsplash.com/photo-1599659593072-10de2e109486?w=700&h=700&fit=crop"
+        alt="Hands giving and receiving — donation and merit-making"
+      >
+    </div>
+    <div class="reveal-right">
+      <p class="donation__eyebrow" data-lang-th="บริจาคและทำบุญ" data-lang-en="Give & Merit-Make">บริจาคและทำบุญ</p>
+      <h2 class="donation__title display">
+        <span data-lang-th="ให้เพื่อ" data-lang-en="Give for">ให้เพื่อ</span>
+        <em data-lang-th="โลกที่ดีกว่า" data-lang-en="a Better World"> โลกที่ดีกว่า</em>
+      </h2>
+      <p class="donation__body" data-lang-th="ส่วนหนึ่งจากรายได้ทุกชิ้นถูกนำไปบริจาคเพื่อสนับสนุนกิจกรรมทำบุญ การอนุรักษ์วัฒนธรรมไทย และโครงการสันติภาพสากล ร่วมเป็นส่วนหนึ่งของความดีงามที่แผ่ออกไปสู่โลก" data-lang-en="A portion of every sale funds merit-making activities, Thai cultural conservation, and international peace projects. When you choose Adinaht, you choose to be part of something larger than beauty.">ส่วนหนึ่งจากรายได้ทุกชิ้นถูกนำไปบริจาคเพื่อสนับสนุนกิจกรรมทำบุญ การอนุรักษ์วัฒนธรรมไทย และโครงการสันติภาพสากล ร่วมเป็นส่วนหนึ่งของความดีงามที่แผ่ออกไปสู่โลก</p>
+      <a href="#contact" class="btn-primary">
+        <i data-lucide="heart-handshake" width="16" height="16"></i>
+        <span data-lang-th="ร่วมบริจาควันนี้" data-lang-en="Donate Today">ร่วมบริจาควันนี้</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section class="contact" id="contact">
+  <div class="contact__inner reveal">
+    <p class="section-eyebrow" data-lang-th="ติดต่อเรา" data-lang-en="Get in Touch">ติดต่อเรา</p>
+    <h2 class="contact__title display" data-lang-th="พูดคุยกับเรา" data-lang-en="Start a Conversation">พูดคุยกับเรา</h2>
+    <p class="contact__sub" data-lang-th="สำหรับคำถาม การสั่งซื้อ หรือความร่วมมือทางธุรกิจ เราพร้อมตอบทุกคำถามของคุณ" data-lang-en="For inquiries, orders, or business partnerships — we welcome every conversation.">สำหรับคำถาม การสั่งซื้อ หรือความร่วมมือทางธุรกิจ เราพร้อมตอบทุกคำถามของคุณ</p>
+
+    <form class="contact__form" onsubmit="return false;">
+      <input
+        type="text"
+        class="contact__input"
+        id="contactName"
+        placeholder="ชื่อของคุณ / Your Name"
+      >
+      <input
+        type="email"
+        class="contact__input"
+        id="contactEmail"
+        placeholder="อีเมล / Email"
+      >
+      <textarea
+        class="contact__input"
+        id="contactMsg"
+        placeholder="ข้อความ / Message"
+      ></textarea>
+      <button type="submit" class="btn-primary" style="align-self: center; min-width: 200px; justify-content: center;">
+        <i data-lucide="send" width="15" height="15"></i>
+        <span data-lang-th="ส่งข้อความ" data-lang-en="Send Message">ส่งข้อความ</span>
+      </button>
+    </form>
+
+    <div class="contact__info">
+      <div class="contact__info-item">
+        <i data-lucide="map-pin" width="16" height="16" style="color: var(--fuchsia); flex-shrink: 0;"></i>
+        <span data-lang-th="กรุงเทพมหานคร ประเทศไทย" data-lang-en="Bangkok, Thailand">กรุงเทพมหานคร ประเทศไทย</span>
+      </div>
+      <div class="contact__info-item">
+        <i data-lucide="mail" width="16" height="16" style="color: var(--fuchsia); flex-shrink: 0;"></i>
+        <a href="mailto:hello@adinaht.com">hello@adinaht.com</a>
+      </div>
+      <div class="contact__info-item">
+        <i data-lucide="phone" width="16" height="16" style="color: var(--fuchsia); flex-shrink: 0;"></i>
+        <a href="tel:+6620001234">+66 2 000 1234</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer class="footer">
+  <div class="footer__logo">ADINAHT<span>.</span></div>
+  <p style="font-size: 0.78rem; opacity: 0.4; max-width: 40ch; line-height: 1.8; text-align: center;" data-lang-th="อาดินาถเพื่อสากล ประเทศไทย — ความงามที่มีความหมาย" data-lang-en="Adinaht International Thailand — Beauty with Meaning">อาดินาถเพื่อสากล ประเทศไทย — ความงามที่มีความหมาย</p>
+  <div class="footer__links">
+    <a href="#products" data-lang-th="ผลิตภัณฑ์" data-lang-en="Products">ผลิตภัณฑ์</a>
+    <a href="#mission" data-lang-th="พันธกิจ" data-lang-en="Mission">พันธกิจ</a>
+    <a href="#donate" data-lang-th="บริจาค" data-lang-en="Donate">บริจาค</a>
+    <a href="#contact" data-lang-th="ติดต่อ" data-lang-en="Contact">ติดต่อ</a>
+  </div>
+  <div class="footer__social">
+    <a href="#" aria-label="Facebook"><i data-lucide="facebook" width="16" height="16"></i></a>
+    <a href="#" aria-label="Instagram"><i data-lucide="instagram" width="16" height="16"></i></a>
+    <a href="#" aria-label="Line"><i data-lucide="message-circle" width="16" height="16"></i></a>
+  </div>
+  <p class="footer__copy" data-lang-th="&copy; 2566 อาดินาถเพื่อสากล สงวนลิขสิทธิ์" data-lang-en="&copy; 2024 Adinaht International. All rights reserved.">&copy; 2566 อาดินาถเพื่อสากล สงวนลิขสิทธิ์</p>
+</footer>
+
+<script>
+// ── LANGUAGE SWITCHER (exact required JS) ──
+(function(){var K='site-lang',L=localStorage.getItem(K)||'th';function S(l){L=l;localStorage.setItem(K,l);document.documentElement.lang=l;document.querySelectorAll('[data-lang-th]').forEach(function(e){var t=e.getAttribute('data-lang-'+l);if(t!==null){e.textContent=t}});var lb=document.querySelector('.lang-sw__label');if(lb){lb.textContent=l.toUpperCase()}}var sw=document.querySelector('.lang-sw');if(sw){sw.addEventListener('click',function(){S(L==='th'?'en':'th')});sw.style.cursor='pointer'}if(L!=='th'){S(L)}})();
+
+// ── NAV SCROLL ──
+(function() {
+  var nav = document.getElementById('nav');
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 60) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+  }, { passive: true });
+})();
+
+// ── HAMBURGER ──
+(function() {
+  var btn = document.getElementById('hamburgerBtn');
+  var mobileNav = document.getElementById('mobileNav');
+  var overlay = document.getElementById('navOverlay');
+  var closeBtn = document.getElementById('navClose');
+  var links = mobileNav.querySelectorAll('a');
+
+  function open() {
+    mobileNav.style.display = 'flex';
+    overlay.style.display = 'block';
+    setTimeout(function() { mobileNav.classList.add('open'); }, 10);
+  }
+
+  function close() {
+    mobileNav.classList.remove('open');
+    setTimeout(function() {
+      mobileNav.style.display = 'none';
+      overlay.style.display = 'none';
+    }, 350);
+  }
+
+  btn.addEventListener('click', open);
+  closeBtn.addEventListener('click', close);
+  overlay.addEventListener('click', close);
+  links.forEach(function(l) { l.addEventListener('click', close); });
+})();
+
+// ── SCROLL REVEAL ──
+(function() {
+  var els = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  els.forEach(function(el) { io.observe(el); });
+})();
+
+// ── LUCIDE ICONS ──
+lucide.createIcons();
+</script>
+</body>
+</html>
